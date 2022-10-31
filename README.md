@@ -1,11 +1,11 @@
 # Hänga gubbe - inlämningssuppgift
 
-## Syftetttt
+## Syftet
 
 - Kunna applicera _datalogiskt tänkande_ och gå från idé till kod
 - Visa förståelse och kunna använda sig av programmeringens _byggstenar_ (variabler, villkor, funktioner, loopar etc)
 
-## Krav på funktionalitetttttttt
+## Krav på funktionalitet
 
 - Ni ska i grupp ska bygga det klassiska spelet hänga gubbe.
 - Det ska vara gjort med HTML/CSS/Javascript
