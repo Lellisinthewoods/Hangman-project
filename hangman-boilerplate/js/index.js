@@ -9,7 +9,7 @@
  */
 
 
- let words = [
+let words = [
     {ord: Puberteten},{ord: Irritation},{ord: Skallig},
     {ord: Ljust},{ord: Murverk},{ord: Återförsäljare},
     {ord: Auto},{ord: Kommunist},{ord: Division},
@@ -20,4 +20,14 @@
     {ord: Fiske},{ord: Rekord},{ord:Turism},
     {ord: Alarm},{ord: Senaste},{ord:Sfär},
     {ord:Hägring},{ord:Uniform },{ord:Zoo },
- ]
+  ]
+
+
+
+window.addEventListener(`keyup`, (e) => {
+    for (let i = 0; i < word.length; i++) {
+        if (e.target.innerText == word[i]) {
+        console.log(`rätt`)
+        }
+    }
+});
