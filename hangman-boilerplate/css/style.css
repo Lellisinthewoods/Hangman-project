@@ -12,12 +12,6 @@ body{
     grid-template-rows:auto;
 }
 
-body aside{
-    float:left;
-}
-
-body figure{
-}
 
 figure svg #ground             { opacity: 1; }
 figure.scaffold svg #scaffold  { opacity: 1; }
