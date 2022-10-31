@@ -1,11 +1,11 @@
 # Hänga gubbe - inlämningssuppgift
 
-## Syfte
+## Syftetttt
 
 - Kunna applicera _datalogiskt tänkande_ och gå från idé till kod
 - Visa förståelse och kunna använda sig av programmeringens _byggstenar_ (variabler, villkor, funktioner, loopar etc)
 
-## Krav på funktionalitettttaddfsasaddsads
+## Krav på funktionalitetttt
 
 - Ni ska i grupp ska bygga det klassiska spelet hänga gubbe.
 - Det ska vara gjort med HTML/CSS/Javascript
@@ -17,7 +17,7 @@
 - Du ska enbart kunna gissa på en bokstav i taget.
 - Ordet får inte vara hårdkodat i Javascript-filen när den ska jämföras. Förslagsvis kan ordet slumpas från en array med ord.
 
-## Form och arbetsgångasdfasdf
+## Form och arbetsgång
 
 Detta är ett grupprojekt i grupper om _3 personer_. Var ni inte med vid indelning, kontakta Johan / Christoffer.
 
