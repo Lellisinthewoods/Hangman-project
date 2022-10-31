@@ -2,6 +2,23 @@ figure svg > * {
     opacity: 0;
 }
 
+.resetButton{
+    display:none;
+}
+
+body{
+    display:grid;
+    grid-template-columns: 2, 1fr;
+    grid-template-rows:auto;
+}
+
+body aside{
+    float:left;
+}
+
+body figure{
+}
+
 figure svg #ground             { opacity: 1; }
 figure.scaffold svg #scaffold  { opacity: 1; }
 figure.head     svg #head      { opacity: 1; }
