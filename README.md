@@ -1,6 +1,6 @@
 # Hänga gubbe - inlämningssuppgift
 
-## Syfte
+## Syftelhjaskjlsaklads
 
 - Kunna applicera _datalogiskt tänkande_ och gå från idé till kod
 - Visa förståelse och kunna använda sig av programmeringens _byggstenar_ (variabler, villkor, funktioner, loopar etc)
