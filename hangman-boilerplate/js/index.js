@@ -1,11 +1,11 @@
 /**
  För att toggla SVG:en
- document.querySelector('figure').classList.add('scaffold')
+ 
  document.querySelector('figure').classList.add('head')
  document.querySelector('figure').classList.add('body')
  document.querySelector('figure').classList.add('arms')
  document.querySelector('figure').classList.add('legs')
-
+ document.querySelector('figure').classList.add('scaffold')
  */
 
 
@@ -32,6 +32,7 @@ document.addEventListener(`keypress`, (e) => {
         }
         else {
             console.log(`${e.key}`)
+            
         }
     }
 })
@@ -47,4 +48,4 @@ console.log(word[0]);
 // GENERERA STRECK EFTER ORDETS LÄNGD
 let streck = document.querySelector(`h6`) 
 for (let i = 0; i < word.length; i++ ) {
-    streck.push.innerHTML = (' _ ') }
+    streck.push(`${<h6>_</h6>}`) }
