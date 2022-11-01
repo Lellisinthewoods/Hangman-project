@@ -34,6 +34,8 @@ let letter = e.key;
 let correctGuess = false;
     for (let i = 0; i < wordLetters.length; i++) {
         
+        
+        
         if (letter == wordLetters[i]) {
             right++
             console.log(right)
@@ -99,6 +101,7 @@ let resetButton= document.querySelector(`.resetButton`) // restar gamet
         slider.classList.toggle("show");
       }
       resetButton.addEventListener("click", () => {
+        randomizer();
         let resetButton = Math.floor(Math.random()*words.length);
         word=words.splice (resetButton, 1)
 
