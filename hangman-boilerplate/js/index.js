@@ -40,7 +40,6 @@ let correctGuess = false;
     }
     if (correctGuess === false) {
         helaOrdFel++
-        
         if (helaOrdFel == 1) {
             document.querySelector('figure').classList.add('scaffold')
             console.log(`fel 1`)
