@@ -22,7 +22,7 @@ let words = [
     {ord:Hägring},{ord:Uniform },{ord:Zoo },
   ]
 
-
+let word = `word`
 
 window.addEventListener(`keyup`, (e) => {
     for (let i = 0; i < word.length; i++) {
