@@ -26,6 +26,7 @@ let word = ``;
 let wordLetters = ``; //ordet vi ska gissa på
 let helaOrdFel = 0;
 let wrongLetters = []; //Där dom felaktiga bokstäverna ska hamna
+let streck = document.querySelector(`h6`) //streck i HTML-koden!
 
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
 let letter = e.key;
@@ -36,10 +37,19 @@ let correctGuess = false;
         if (letter == wordLetters[i]) {
             console.log(`rätt`)
             correctGuess = true;
+            streck.innerText = wordLetters[i]; //HUR HITTAR VI DET SPECIFIKA BARNET?
+            //document.querySelector(`streck:nth-child(${i})`).innerText = "DE TRODDE DU INTE VA";
+               //streck:nth-child(i).innerHTML = `${letter}`;
         }
     }
+
+  
+
     if (correctGuess === false) {
         helaOrdFel++
+        let points = document.querySelector(`p`)
+        points.innerHTML = helaOrdFel;
+        
         if (helaOrdFel == 1) {
             document.querySelector('figure').classList.add('scaffold')
             console.log(`fel 1`)
@@ -59,6 +69,8 @@ let correctGuess = false;
         if (helaOrdFel == 5) {
             document.querySelector('figure').classList.add('legs')
             console.log(`fel 5`)
+            
+            
         }
     }
 });
@@ -68,11 +80,10 @@ function randomizer(){
     word = words.splice(randomNumber, 1) //splicear ut vårat ord
     wordLetters = word[0].ord //gör om vårat ord till en string variabel
     console.log(wordLetters)
-    let streck = document.querySelector(`h6`) 
-     streck.innerText = ``;
 
+    streck.innerText = ``;
     for (let i = 0; i < word[0].ord.length; i++ ) { //sätter ut strecken
-        streck.innerText += (' _ ') 
+        streck.innerHTML += (`<span> _ </span>`) 
     }
 }
 
@@ -81,7 +92,7 @@ document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur 
     randomizer()
 });
 
-let resetButton= document.querySelector(`.resetButton`)
+let resetButton= document.querySelector(`.resetButton`) // restar gamet
 
     function toggle(){
         slider.classList.toggle("show");
