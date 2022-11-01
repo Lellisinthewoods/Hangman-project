@@ -28,6 +28,7 @@ let helaOrdFel = 0;
 let wrongLetters = []; //Där dom felaktiga bokstäverna ska hamna
 let allLetters = []; //där ALLA användarens bokstäver ska hamna
 let streck = document.querySelector(`h6`) //streck i HTML-koden!
+let right = 0
 
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
 let letter = e.key;
@@ -40,12 +41,16 @@ let correctGuess = false;
     for (let i = 0; i < wordLetters.length; i++) {
         
         
+        
         if (letter == wordLetters[i]) {
+            right++
+            console.log(right)
             console.log(`rätt`)
             correctGuess = true;
-            streck.innerText = wordLetters[i]; //HUR HITTAR VI DET SPECIFIKA BARNET?
-            //document.querySelector(`streck:nth-child(${i})`).innerText = "DE TRODDE DU INTE VA";
-               //streck:nth-child(i).innerHTML = `${letter}`;
+            document.querySelector(`span:nth-child(${i + 1})`).innerText = letter;
+            if (wordLetters.length == right) {
+                console.log(`you win!`)
+            }
         }
     }
 
@@ -77,13 +82,24 @@ let correctGuess = false;
             console.log(`fel 5`)
         }
     }
-   }
-   else
-   {
-      console.log(`Du har redan skrivit den jävla bokstaven! hmpf`)
-   }
-allLetters.push(letter);
-});
+
+    if(helaOrdFel == 5) {
+        document.querySelector(`nav`).style.display = `flex`
+        let lose = document.querySelector(`h2`)
+        lose.innerText = `Du förlorade spelet!`
+        points.innerText = ``;
+
+        
+
+        toggle()
+    
+        // else(  )
+        // let win = document.querySelector(`h2`)
+        // win.innerHTML = `Du vann spelet! <br>
+        // Vill du spela igen?`
+    }
+    
+};
 
 function randomizer(){
     let randomNumber = Math.floor(Math.random()*words.length);
