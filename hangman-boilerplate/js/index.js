@@ -25,13 +25,13 @@ let words = [
 let word = `word`
 
 document.addEventListener(`keypress`, (e) => {
-   console.log(`hej hej ${e.target.value}`)
+   console.log(`hej hej ${e.key}`)
     for (let i = 0; i < word.length; i++) {
-        if (e.target.innerText == word[i]) {
-            console.log(`rätt på plats ${i}`)
+        if (e.key == word[i]) {
+        console.log(`rätt på plats ${i}`)
         }
         else {
-            console.log(`${e.target.innerText}`)
+            console.log(`${e.key}`)
         }
     }
 });
