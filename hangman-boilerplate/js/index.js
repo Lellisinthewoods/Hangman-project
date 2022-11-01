@@ -42,3 +42,9 @@ document.querySelector(`.randomizerButton`)
  word = words.splice(randomNumber, 1)
 console.log(word[0]);
 })
+
+
+// GENERERA STRECK EFTER ORDETS LÄNGD
+let streck = document.querySelector(`h6`) 
+for (let i = 0; i < word.length; i++ ) {
+    streck.push.innerHTML = (' _ ') }
