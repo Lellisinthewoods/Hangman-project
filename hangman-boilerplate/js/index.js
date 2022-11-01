@@ -130,7 +130,10 @@ let resetButton= document.querySelector(`.resetButton`) // restar gamet
 
       });
 
-      function compareLetters(userLetter)
+      
+   })
+
+   function compareLetters(userLetter)
       {
          let bool;
          for (let i = -1; i < allLetters.length; i++) {
@@ -142,5 +145,5 @@ let resetButton= document.querySelector(`.resetButton`) // restar gamet
          }
          
       return bool;
-      }}
-   })
+      }
+   }
