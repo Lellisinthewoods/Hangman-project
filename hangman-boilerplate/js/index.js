@@ -22,22 +22,16 @@
  {ord: `Hägring`},{ord: `Uniform`},{ord: `Zoo`},
 ]
 
+
+
 let word = `word`;
 
 
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
 let letter = e.key;
-console.log(letter)
-console.log(word[0])
-
  for (let i = 0; i < word.length; i++) {
-   
-   let wordLetter = pop(word[i]);
-   console.log(letter)
-   console.log(wordLetter)
-     if (letter === wordLetter) {
-      console.log(word)
-      console.log(`Bokstäverna är ju likadana!!`)
+     if (letter === word[0]) {
+        
      }
      else {
       console.log(`bokstäverna SUGEERRRRR`)
