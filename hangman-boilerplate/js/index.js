@@ -113,3 +113,16 @@ let resetButton= document.querySelector(`.resetButton`) // restar gamet
         word=words.splice (resetButton, 1)
 
       });
+
+      function compareLetters(userLetter){
+         let bool;
+      for (let i = -1; i < allLetters.length; i++) {
+         if(allLetters[i] === userLetter){
+            bool = false; //INTE SÄKERT FÖR DEN KOMMER STÄLLA OM SIG I NÄSTA BOKSTAV
+         }
+         else{
+            bool = true;
+         }
+      }
+      return bool;
+      }
