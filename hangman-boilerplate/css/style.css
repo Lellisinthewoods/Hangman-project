@@ -20,7 +20,7 @@ body aside{
 }
 
 .resetButton{
-    display:none;
+    display:flex;
 }
 
 body{
@@ -36,3 +36,37 @@ figure.head     svg #head      { opacity: 1; }
 figure.body     svg #body      { opacity: 1; }
 figure.arms     svg #arms      { opacity: 1; }
 figure.legs     svg #legs      { opacity: 1; }
+
+nav {
+    height: 100vh;
+    background-image: linear-gradient(to bottom right, red, yellow);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    color: #eee;
+    position: fixed;
+    top: 0;
+    Left: 0;
+    width: 100%;
+    transform: translateY(-100%);
+    transition: all .6s ease;
+    font-size: 5rem;
+}
+
+nav.show {
+    transform: translateX(0);
+}
+
+nav button {
+    padding: 3rem 4rem;
+    font-size: 1.5rem;
+    border-radius: 6px;
+    border:none;
+}
+
+nav button:active{
+    transform: scale(.95);
+    filter: brightness(101%);
+}

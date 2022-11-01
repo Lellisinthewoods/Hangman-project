@@ -43,8 +43,8 @@ let correctGuess = false;
 
     if (correctGuess === false) {
         helaOrdFel++
-        let points = document.querySelector(`p`)
-        points.innerHTML = helaOrdFel;
+        let points = document.querySelector(`#guesses`)
+        points.innerHTML = `Guesses: ` + helaOrdFel;
         
         if (helaOrdFel == 1) {
             document.querySelector('figure').classList.add('scaffold')
@@ -69,6 +69,20 @@ let correctGuess = false;
             
         }
     }
+
+    if(helaOrdFel == 5) {
+        document.querySelector(`nav`).style.display = `flex`
+        let lose = document.querySelector(`h2`)
+        lose.innerText = `Du förlorade spelet!`
+
+        toggle()
+    
+        // else(  )
+        // let win = document.querySelector(`h2`)
+        // win.innerHTML = `Du vann spelet! <br>
+        // Vill du spela igen?`
+    }
+    
 });
 
 function randomizer(){
@@ -89,13 +103,15 @@ document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur 
     randomizer()
 });
 
-let resetButton= document.querySelector(`.resetButton`) // restar gamet
+let resetButton = document.querySelector(`.resetButton`) // restar gamet
+let navBar = document.querySelector(`.show`)
+navBar.style.display = `none`
+resetButton.style.display = `none`
+
 
     function toggle(){
-        slider.classList.toggle("show");
-      }
+        resetButton.style.display = `flex`}
       resetButton.addEventListener("click", () => {
-        let resetButton = Math.floor(Math.random()*words.length);
-        word=words.splice (resetButton, 1)
+        location.reload()
 
-      });
+      }); 
