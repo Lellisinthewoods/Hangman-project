@@ -32,14 +32,10 @@ document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tange
 let letter = e.key;
 let correctGuess = false;
     for (let i = 0; i < wordLetters.length; i++) {
-        
-        
         if (letter == wordLetters[i]) {
             console.log(`rätt`)
             correctGuess = true;
-            streck.innerText = wordLetters[i]; //HUR HITTAR VI DET SPECIFIKA BARNET?
-            //document.querySelector(`streck:nth-child(${i})`).innerText = "DE TRODDE DU INTE VA";
-               //streck:nth-child(i).innerHTML = `${letter}`;
+            document.querySelector(`span:nth-child(${i + 1})`).innerText = letter;
         }
     }
 
