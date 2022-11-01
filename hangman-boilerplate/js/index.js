@@ -59,4 +59,16 @@ function randomizer(){
 document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur listan
 .addEventListener(`click`, ()=>{
 randomizer()
-})
+}
+)
+
+let resetButton= document.querySelector(`.resetButton`)
+
+    function toggle(){
+        slider.classList.toggle("show");
+      }
+      resetButton.addEventListener("click", () => {
+        let resetButton = Math.floor(Math.random()*words.length);
+        word=words.splice (resetButton, 1)
+
+      });
