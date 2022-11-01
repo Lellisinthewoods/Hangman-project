@@ -26,25 +26,40 @@ let word = ``;
 let wordLetters = ``; //ordet vi ska gissa på
 let helaOrdFel = 0;
 let wrongLetters = []; //Där dom felaktiga bokstäverna ska hamna
+let allLetters = []; //där ALLA användarens bokstäver ska hamna
 let streck = document.querySelector(`h6`) //streck i HTML-koden!
+let right = 0
 
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
 let letter = e.key;
+let comparedLetter = compareLetters(letter);
+console.log(allLetters)
+
+if(comparedLetter == true)
+{
 let correctGuess = false;
     for (let i = 0; i < wordLetters.length; i++) {
+        
+        
+        
         if (letter == wordLetters[i]) {
+            right++
+            console.log(right)
             console.log(`rätt`)
             correctGuess = true;
             document.querySelector(`span:nth-child(${i + 1})`).innerText = letter;
+            if (wordLetters.length == right) {
+                console.log(`you win!`)
+            }
         }
     }
 
-  
-
     if (correctGuess === false) {
         helaOrdFel++
-        let points = document.querySelector(`#guesses`)
-        points.innerHTML = `Guesses: ` + helaOrdFel;
+        let points = document.querySelector(`p`)
+        points.innerHTML = helaOrdFel;
+        wrongLetters.push(letter);
+        console.log(wrongLetters)
         
         if (helaOrdFel == 1) {
             document.querySelector('figure').classList.add('scaffold')
@@ -65,8 +80,6 @@ let correctGuess = false;
         if (helaOrdFel == 5) {
             document.querySelector('figure').classList.add('legs')
             console.log(`fel 5`)
-            
-            
         }
     }
 
@@ -86,7 +99,7 @@ let correctGuess = false;
         // Vill du spela igen?`
     }
     
-});
+};
 
 function randomizer(){
     let randomNumber = Math.floor(Math.random()*words.length);
@@ -105,15 +118,14 @@ document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur 
     randomizer()
 });
 
-let resetButton = document.querySelector(`.resetButton`) // restar gamet
-let navBar = document.querySelector(`.show`)
-navBar.style.display = `none`
-resetButton.style.display = `none`
-
+let resetButton= document.querySelector(`.resetButton`) // restar gamet
 
     function toggle(){
-        resetButton.style.display = `flex`}
+        slider.classList.toggle("show");
+      }
       resetButton.addEventListener("click", () => {
-        location.reload()
+        randomizer();
+        let resetButton = Math.floor(Math.random()*words.length);
+        word=words.splice (resetButton, 1)
 
-      }); 
+      });
