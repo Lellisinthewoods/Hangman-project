@@ -35,9 +35,7 @@ let correctGuess = false;
         if (letter == wordLetters[i]) {
             console.log(`rätt`)
             correctGuess = true;
-            // streck.innerText = wordLetters[i]; //HUR HITTAR VI DET SPECIFIKA BARNET?
             document.querySelector(`span:nth-child(${i + 1})`).innerText = letter;
-               //streck:nth-child(i).innerHTML = `${letter}`;
         }
     }
 
