@@ -64,7 +64,7 @@ let correctGuess = false;
         }
         if (helaOrdFel == 5) {
             document.querySelector('figure').classList.add('legs')
-            console.log(`fel 5 hej`)
+            console.log(`fel 5`)
             
             
         }
