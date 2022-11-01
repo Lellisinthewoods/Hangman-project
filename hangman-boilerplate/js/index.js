@@ -40,5 +40,11 @@ document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur 
 .addEventListener(`click`, ()=>{
  let randomNumber = Math.floor(Math.random()*words.length);
  word = words.splice(randomNumber, 1)
-console.log(word);
+console.log(word[0]);
 })
+
+
+// GENERERA STRECK EFTER ORDETS LÄNGD
+let streck = document.querySelector(`h6`) 
+for (let i = 0; i < word.length; i++ ) {
+    streck.push.innerHTML = (' _ ') }
