@@ -34,3 +34,9 @@ window.addEventListener(`keyup`, (e) => {
         }
     }
 });
+
+document.querySelector(`.randomizerButton`)
+.addEventListener(`click`, ()=>{
+ let word = Math.floor(Math.random()*words.length);
+console.log(word);
+})
