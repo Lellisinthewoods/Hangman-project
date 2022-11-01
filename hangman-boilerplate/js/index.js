@@ -9,7 +9,7 @@
  */
 
 
-let words = [
+let words = [ //lista att hämta orden från!
     {ord: `Puberteten`},{ord: `Irritation`},{ord: `Skallig`},
     {ord: `Ljust`},{ord: `Murverk`},{ord: `Återförsäljare`},
     {ord: `Auto`},{ord: `Kommunist`},{ord: `Division`},
@@ -24,26 +24,27 @@ let words = [
 
 let word = `word`;
 
-document.addEventListener(`keypress`, (e) => {
-   console.log(`hej hej ${e.target.value}`)
+document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
+   console.log(`hej hej ${e.key}`)
     for (let i = 0; i < word.length; i++) {
-        if (e.target.innerText == word[i]) {
+        if (e.key == word[i]) {
         console.log(`rätt på plats ${i}`)
         }
         else {
-            console.log(`${e.target.innerText}`)
+            console.log(`${e.key}`)
         }
     }
-});
+})
 
-document.querySelector(`.randomizerButton`)
+document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur listan
 .addEventListener(`click`, ()=>{
  let randomNumber = Math.floor(Math.random()*words.length);
  word = words.splice(randomNumber, 1)
-console.log(word);
+console.log(word[0]);
 })
 
 
-
-
-
+// GENERERA STRECK EFTER ORDETS LÄNGD
+let streck = document.querySelector(`h6`) 
+for (let i = 0; i < word.length; i++ ) {
+    streck.push.innerHTML = (' _ ') }
