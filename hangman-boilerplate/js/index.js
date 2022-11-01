@@ -42,8 +42,13 @@ let correctGuess = false;
                //streck:nth-child(i).innerHTML = `${letter}`;
         }
     }
+
+  
+
     if (correctGuess === false) {
         helaOrdFel++
+        let points = document.querySelector(`p`)
+        points.innerHTML = helaOrdFel;
         
         if (helaOrdFel == 1) {
             document.querySelector('figure').classList.add('scaffold')
@@ -64,6 +69,8 @@ let correctGuess = false;
         if (helaOrdFel == 5) {
             document.querySelector('figure').classList.add('legs')
             console.log(`fel 5`)
+            
+            
         }
     }
 });
