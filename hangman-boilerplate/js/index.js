@@ -22,13 +22,13 @@ let words = [
     {ord: `Hägring`},{ord: `Uniform`},{ord: `Zoo`},
   ]
 
-let word = `` //senare word = words.ord
+let word = `word`
 
-document.addEventListener(`keyup`, (e) => {
+document.addEventListener(`keypress`, (e) => {
    console.log(`hej hej ${e.target.value}`)
     for (let i = 0; i < word.length; i++) {
         if (e.target.innerText == word[i]) {
-        console.log(`rätt på plats ${i}`)
+            console.log(`rätt på plats ${i}`)
         }
         else {
             console.log(`${e.target.innerText}`)
