@@ -48,3 +48,16 @@ console.log(word[0]);
 let streck = document.querySelector(`h6`) 
 for (let i = 0; i < word.length; i++ ) {
     streck.push.innerHTML = (' _ ') }
+
+
+    //Reset knappen
+    let resetButton= document.querySelector(`.resetButton`)
+
+    function toggle() {
+        slider.classList.toggle("show");
+      }
+      resetButton.addEventListener("click", () => {
+        let resetButton = Math.floor(Math.random()*words.length);
+        word=words.splice (resetButton, 1)
+
+      });
