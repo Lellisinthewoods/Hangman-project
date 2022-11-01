@@ -90,7 +90,7 @@ document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur 
     randomizer()
 });
 
-let resetButton= document.querySelector(`.resetButton`)
+let resetButton= document.querySelector(`.resetButton`) // restar gamet
 
     function toggle(){
         slider.classList.toggle("show");
