@@ -29,5 +29,8 @@ window.addEventListener(`keyup`, (e) => {
         if (e.target.innerText == word[i]) {
         console.log(`rätt`)
         }
+        else {
+            console.log(`${e.target.innerText}`)
+        }
     }
 });
