@@ -130,15 +130,17 @@ let resetButton= document.querySelector(`.resetButton`) // restar gamet
 
       });
 
-      function compareLetters(userLetter){
+      function compareLetters(userLetter)
+      {
          let bool;
-      for (let i = -1; i < allLetters.length; i++) {
+         for (let i = -1; i < allLetters.length; i++) {
          if(allLetters[i] === userLetter){
             bool = false; //INTE SÄKERT FÖR DEN KOMMER STÄLLA OM SIG I NÄSTA BOKSTAV
          }
          else{
             bool = true;
          }
-      }
+         
       return bool;
-      }
+      }}
+   })
