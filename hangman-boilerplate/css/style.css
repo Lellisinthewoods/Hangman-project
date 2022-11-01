@@ -1,6 +1,19 @@
 figure svg > * {
     opacity: 0;
 }
+.resetButton{
+    display:none;
+}
+
+body{
+    display:grid;
+    grid-template-columns: 2, 1fr;
+    grid-template-rows:auto;
+}
+
+body aside{
+    float:left;
+}
 
 figure svg #ground             { opacity: 1; }
 figure.scaffold svg #scaffold  { opacity: 1; }
