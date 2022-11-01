@@ -74,6 +74,9 @@ let correctGuess = false;
         document.querySelector(`nav`).style.display = `flex`
         let lose = document.querySelector(`h2`)
         lose.innerText = `Du förlorade spelet!`
+        points.innerText = ``;
+
+        
 
         toggle()
     
