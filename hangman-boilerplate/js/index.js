@@ -22,7 +22,7 @@ let words = [
     {ord: `Hägring`},{ord: `Uniform`},{ord: `Zoo`},
   ]
 
-let word = `word`
+let word = `word` //senare word = words.ord
 
 window.addEventListener(`keyup`, (e) => {
     for (let i = 0; i < word.length; i++) {
