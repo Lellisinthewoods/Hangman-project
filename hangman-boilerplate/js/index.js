@@ -40,5 +40,5 @@ document.querySelector(`.randomizerButton`)
 .addEventListener(`click`, ()=>{
  let randomNumber = Math.floor(Math.random()*words.length);
  word = words.splice(randomNumber, 1)
-console.log(words[0]);
+console.log(word);
 })
