@@ -22,17 +22,16 @@
  {ord: `Hägring`},{ord: `Uniform`},{ord: `Zoo`},
 ]
 
+
+
 let word = `word`;
 
 
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
 let letter = e.key;
-
-
-
  for (let i = 0; i < word.length; i++) {
-     if (letter === word[i]) {
-
+     if (letter === word[0]) {
+        
      }
      else {
         
