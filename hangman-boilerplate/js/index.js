@@ -38,10 +38,14 @@ if(comparedLetter == true)
 {
 let correctGuess = false;
     for (let i = 0; i < wordLetters.length; i++) {
+        
+        
         if (letter == wordLetters[i]) {
             console.log(`rätt`)
             correctGuess = true;
-            document.querySelector(`span:nth-child(${i + 1})`).innerText = letter;
+            streck.innerText = wordLetters[i]; //HUR HITTAR VI DET SPECIFIKA BARNET?
+            //document.querySelector(`streck:nth-child(${i})`).innerText = "DE TRODDE DU INTE VA";
+               //streck:nth-child(i).innerHTML = `${letter}`;
         }
     }
 
@@ -100,24 +104,12 @@ document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur 
 
 let resetButton= document.querySelector(`.resetButton`) // restar gamet
 
-function toggle(){
-   slider.classList.toggle("show");
-   }
+    function toggle(){
+        slider.classList.toggle("show");
+      }
+      resetButton.addEventListener("click", () => {
+        randomizer();
+        let resetButton = Math.floor(Math.random()*words.length);
+        word=words.splice (resetButton, 1)
 
-resetButton.addEventListener("click", () => {
-   let resetButton = Math.floor(Math.random()*words.length);
-   word=words.splice (resetButton, 1)
-});
-
-function compareLetters(userLetter){
-   let bool;
-for (let i = -1; i < allLetters.length; i++) {
-   if(allLetters[i] === userLetter){
-      bool = false; //INTE SÄKERT FÖR DEN KOMMER STÄLLA OM SIG I NÄSTA BOKSTAV
-   }
-   else{
-      bool = true;
-   }
-}
-return bool;
-}
+      });
