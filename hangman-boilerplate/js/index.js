@@ -26,10 +26,16 @@ let word = ``;
 let wordLetters = ``; //ordet vi ska gissa på
 let helaOrdFel = 0;
 let wrongLetters = []; //Där dom felaktiga bokstäverna ska hamna
+let allLetters = []; //där ALLA användarens bokstäver ska hamna
 let streck = document.querySelector(`h6`) //streck i HTML-koden!
 
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
 let letter = e.key;
+let comparedLetter = compareLetters(letter);
+console.log(allLetters)
+
+if(comparedLetter == true)
+{
 let correctGuess = false;
     for (let i = 0; i < wordLetters.length; i++) {
         if (letter == wordLetters[i]) {
@@ -39,12 +45,12 @@ let correctGuess = false;
         }
     }
 
-  
-
     if (correctGuess === false) {
         helaOrdFel++
         let points = document.querySelector(`p`)
         points.innerHTML = helaOrdFel;
+        wrongLetters.push(letter);
+        console.log(wrongLetters)
         
         if (helaOrdFel == 1) {
             document.querySelector('figure').classList.add('scaffold')
@@ -65,10 +71,14 @@ let correctGuess = false;
         if (helaOrdFel == 5) {
             document.querySelector('figure').classList.add('legs')
             console.log(`fel 5`)
-            
-            
         }
     }
+   }
+   else
+   {
+      console.log(`Du har redan skrivit den jävla bokstaven! hmpf`)
+   }
+allLetters.push(letter);
 });
 
 function randomizer(){
@@ -90,11 +100,24 @@ document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur 
 
 let resetButton= document.querySelector(`.resetButton`) // restar gamet
 
-    function toggle(){
-        slider.classList.toggle("show");
-      }
-      resetButton.addEventListener("click", () => {
-        let resetButton = Math.floor(Math.random()*words.length);
-        word=words.splice (resetButton, 1)
+function toggle(){
+   slider.classList.toggle("show");
+   }
 
-      });
+resetButton.addEventListener("click", () => {
+   let resetButton = Math.floor(Math.random()*words.length);
+   word=words.splice (resetButton, 1)
+});
+
+function compareLetters(userLetter){
+   let bool;
+for (let i = -1; i < allLetters.length; i++) {
+   if(allLetters[i] === userLetter){
+      bool = false; //INTE SÄKERT FÖR DEN KOMMER STÄLLA OM SIG I NÄSTA BOKSTAV
+   }
+   else{
+      bool = true;
+   }
+}
+return bool;
+}
