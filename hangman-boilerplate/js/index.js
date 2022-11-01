@@ -1,11 +1,11 @@
 /**
  För att toggla SVG:en
- document.querySelector('figure').classList.add('scaffold')
+ 
  document.querySelector('figure').classList.add('head')
  document.querySelector('figure').classList.add('body')
  document.querySelector('figure').classList.add('arms')
  document.querySelector('figure').classList.add('legs')
-
+ document.querySelector('figure').classList.add('scaffold')
  */
 
 
@@ -32,22 +32,28 @@ document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tange
         }
         else {
             console.log(`${e.key}`)
+            
         }
     }
 })
 
 document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur listan
 .addEventListener(`click`, ()=>{
- let randomNumber = Math.floor(Math.random()*words.length);
- word = words.splice(randomNumber, 1)
-console.log(word[0]);
+   let randomNumber = Math.floor(Math.random()*words.length);
+   word = words.splice(randomNumber, 1)
+   console.log(word[0].ord)
+   let streck = document.querySelector(`h6`) 
+   streck.innerText = ``;
+   for (let i = 0; i < word[0].ord.length; i++ ) {
+      streck.innerText += (' _ ') 
+      console.log(word[0].ord.length)
+   }
 })
 
 
-// GENERERA STRECK EFTER ORDETS LÄNGD
-let streck = document.querySelector(`h6`) 
-for (let i = 0; i < word.length; i++ ) {
-    streck.push.innerHTML = (' _ ') }
+  
+    
+
 
 
     //Reset knappen
