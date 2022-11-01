@@ -24,10 +24,11 @@ let words = [
 
 let word = `` //senare word = words.ord
 
-window.addEventListener(`keyup`, (e) => {
+document.addEventListener(`keyup`, (e) => {
+   console.log(`hej hej ${e.target.value}`)
     for (let i = 0; i < word.length; i++) {
         if (e.target.innerText == word[i]) {
-        console.log(`rätt`)
+        console.log(`rätt på plats ${i}`)
         }
         else {
             console.log(`${e.target.innerText}`)
