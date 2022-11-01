@@ -22,7 +22,7 @@ let words = [ //lista att hämta orden från!
     {ord: `Hägring`},{ord: `Uniform`},{ord: `Zoo`},
   ]
 
-let word = `word`
+let word = `word`;
 
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
    console.log(`hej hej ${e.key}`)
