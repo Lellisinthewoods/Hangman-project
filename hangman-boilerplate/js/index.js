@@ -34,7 +34,7 @@ document.addEventListener(`keypress`, (e) => {
             console.log(`${e.key}`)
         }
     }
-});
+})
 
 document.querySelector(`.randomizerButton`)
 .addEventListener(`click`, ()=>{
