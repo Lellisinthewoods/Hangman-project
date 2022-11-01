@@ -30,9 +30,6 @@ document.addEventListener(`keyup`, (e) => {
         if (e.target.innerText == word[i]) {
         console.log(`rätt på plats ${i}`)
         }
-        else{
-         console.log(`fel!`)
-        }
         else {
             console.log(`${e.target.innerText}`)
         }
