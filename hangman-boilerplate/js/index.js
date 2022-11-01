@@ -22,7 +22,7 @@ let words = [
     {ord: `Hägring`},{ord: `Uniform`},{ord: `Zoo`},
   ]
 
-let word = `word` //senare word = words.ord
+let word = `` //senare word = words.ord
 
 window.addEventListener(`keyup`, (e) => {
     for (let i = 0; i < word.length; i++) {
@@ -37,6 +37,7 @@ window.addEventListener(`keyup`, (e) => {
 
 document.querySelector(`.randomizerButton`)
 .addEventListener(`click`, ()=>{
- let word = Math.floor(Math.random()*words.length);
-console.log(word);
+ let randomNumber = Math.floor(Math.random()*words.length);
+ word = words.splice(randomNumber, 1)
+console.log(word[0]);
 })
