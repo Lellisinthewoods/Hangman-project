@@ -27,30 +27,34 @@ let word = `word`;
 
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
 let letter = e.key;
-
-
+console.log(letter)
+console.log(word[0])
 
  for (let i = 0; i < word.length; i++) {
-     if (letter === word[i]) {
-
+   
+   let wordLetter = pop(word[i]);
+   console.log(letter)
+   console.log(wordLetter)
+     if (letter === wordLetter) {
+      console.log(word)
+      console.log(`Bokstäverna är ju likadana!!`)
      }
      else {
-        
-
+      console.log(`bokstäverna SUGEERRRRR`)
      }
  }
 })
 
 function randomizer(){
- let randomNumber = Math.floor(Math.random()*words.length);
- word = words.splice(randomNumber, 1)
- console.log(word[0].ord)
- let streck = document.querySelector(`h6`) 
- streck.innerText = ``;
- for (let i = 0; i < word[0].ord.length; i++ ) {
-    streck.innerText += (' _ ') 
+   let randomNumber = Math.floor(Math.random()*words.length);
+   word = words.splice(randomNumber, 1)
+   console.log(word[0].ord)
+   let streck = document.querySelector(`h6`) 
+   streck.innerText = ``;
+   for (let i = 0; i < word[0].ord.length; i++ ) {
+      streck.innerText += (' _ ') 
 
-}
+   }
 }
 
 document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur listan
@@ -61,7 +65,7 @@ randomizer()
 
 let resetButton= document.querySelector(`.resetButton`)
 
-    function toggle() {
+    function toggle(){
         slider.classList.toggle("show");
       }
       resetButton.addEventListener("click", () => {
