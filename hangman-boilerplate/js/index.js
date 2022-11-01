@@ -38,6 +38,7 @@ document.addEventListener(`keyup`, (e) => {
 
 document.querySelector(`.randomizerButton`)
 .addEventListener(`click`, ()=>{
- let word = Math.floor(Math.random()*words.length);
+ let randomNumber = Math.floor(Math.random()*words.length);
+ word = words.splice(randomNumber, 1)
 console.log(words[0]);
 })
