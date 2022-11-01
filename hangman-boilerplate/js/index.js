@@ -14,7 +14,7 @@ let words = [ //lista att hämta orden från!
     {ord: `Ljust`},{ord: `Murverk`},{ord: `Återförsäljare`},
     {ord: `Auto`},{ord: `Kommunist`},{ord: `Division`},
     {ord: `Mognad`},{ord: `Flocken`},{ord: `Nejlika`},
-    {ord: `Loop`},{ord: `Turban`},{ord: `Radera`},
+    {ord: `Bajs`},{ord: `Turban`},{ord: `Radera`},
     {ord: `Mascara`},{ord: `Sardinen`},{ord: `Rimfrost`},
     {ord: `Brudgum`},{ord: `Ringa`},{ord: `Tid`},
     {ord: `Fiske`},{ord: `Rekord`},{ord: `Turism`},
@@ -49,11 +49,6 @@ document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur 
       console.log(word[0].ord.length)
    }
 })
-
-
-  
-    
-
 
 
     //Reset knappen
