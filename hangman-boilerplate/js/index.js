@@ -10,51 +10,53 @@
 
 
  let words = [ //lista att hämta orden från!
- {ord: `Puberteten`},{ord: `Irritation`},{ord: `Skallig`},
- {ord: `Ljust`},{ord: `Murverk`},{ord: `Återförsäljare`},
- {ord: `Auto`},{ord: `Kommunist`},{ord: `Division`},
- {ord: `Mognad`},{ord: `Flocken`},{ord: `Nejlika`},
- {ord: `Bajs`},{ord: `Turban`},{ord: `Radera`},
- {ord: `Mascara`},{ord: `Sardinen`},{ord: `Rimfrost`},
- {ord: `Brudgum`},{ord: `Ringa`},{ord: `Tid`},
- {ord: `Fiske`},{ord: `Rekord`},{ord: `Turism`},
- {ord: `Alarm`},{ord: `Senaste`},{ord: `Sfär`},
- {ord: `Hägring`},{ord: `Uniform`},{ord: `Zoo`},
+ {ord: `puberteten`},{ord: `irritation`},{ord: `skallig`},
+ {ord: `ljust`},{ord: `murverk`},{ord: `återförsäljare`},
+ {ord: `auto`},{ord: `kommunist`},{ord: `division`},
+ {ord: `mognad`},{ord: `flocken`},{ord: `nejlika`},
+ {ord: `bajs`},{ord: `turban`},{ord: `radera`},
+ {ord: `mascara`},{ord: `sardinen`},{ord: `rimfrost`},
+ {ord: `brudgum`},{ord: `ringa`},{ord: `tid`},
+ {ord: `fiske`},{ord: `rekord`},{ord: `turism`},
+ {ord: `alarm`},{ord: `senaste`},{ord: `sfär`},
+ {ord: `hägring`},{ord: `uniform`},{ord: `zoo`},
 ]
 
-let word = `word`;
+let word = ``;
+let wordLetters = ``
 
 
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
 let letter = e.key;
 
-
-
- for (let i = 0; i < word.length; i++) {
-     if (letter === word[i]) {
-
-     }
-     else {
-        
-
-     }
- }
-})
+    for (let i = 0; i < wordLetters.length; i++) {
+        if (letter == wordLetters[i]) {
+            console.log(wordLetters)
+            console.log(`rätt`)
+            break;
+        }
+        else {
+            console.log(`fel`)
+            console.log(wordLetters)
+            console.log(letter)
+        }
+    }
+});
 
 function randomizer(){
  let randomNumber = Math.floor(Math.random()*words.length);
  word = words.splice(randomNumber, 1)
+ wordLetters = word[0].ord
  console.log(word[0].ord)
+ console.log(wordLetters)
  let streck = document.querySelector(`h6`) 
  streck.innerText = ``;
  for (let i = 0; i < word[0].ord.length; i++ ) {
     streck.innerText += (' _ ') 
-
 }
 }
 
 document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur listan
 .addEventListener(`click`, ()=>{
 randomizer()
-}
-)
+})
