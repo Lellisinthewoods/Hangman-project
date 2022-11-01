@@ -27,19 +27,24 @@ let wordLetters = ``; //ordet vi ska gissa på
 let helaOrdFel = 0;
 let wrongLetters = []; //Där dom felaktiga bokstäverna ska hamna
 let streck = document.querySelector(`h6`) //streck i HTML-koden!
+let right = 0
 
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
 let letter = e.key;
 let correctGuess = false;
     for (let i = 0; i < wordLetters.length; i++) {
+        
         if (letter == wordLetters[i]) {
+            right++
+            console.log(right)
             console.log(`rätt`)
             correctGuess = true;
             document.querySelector(`span:nth-child(${i + 1})`).innerText = letter;
+            if (wordLetters.length == right) {
+                console.log(`you win!`)
+            }
         }
     }
-
-  
 
     if (correctGuess === false) {
         helaOrdFel++
