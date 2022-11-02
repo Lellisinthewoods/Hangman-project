@@ -50,6 +50,7 @@ let correctGuess = false;
             document.querySelector(`span:nth-child(${i + 1})`).innerText = letter;
             if (wordLetters.length == right) {
                 console.log(`you win!`)
+                right = 0
             }
         }
     }
@@ -100,6 +101,7 @@ let correctGuess = false;
     }
     
 };
+})
 
 function randomizer(){
     let randomNumber = Math.floor(Math.random()*words.length);
@@ -120,12 +122,11 @@ document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur 
 
 let resetButton= document.querySelector(`.resetButton`) // restar gamet
 
-    function toggle(){
-        slider.classList.toggle("show");
-      }
-      resetButton.addEventListener("click", () => {
-        randomizer();
-        let resetButton = Math.floor(Math.random()*words.length);
-        word=words.splice (resetButton, 1)
-
-      });
+function toggle(){
+    slider.classList.toggle("show");
+}
+resetButton.addEventListener("click", () => {
+    randomizer();
+    let resetButton = Math.floor(Math.random()*words.length);
+    word=words.splice (resetButton, 1)
+});
