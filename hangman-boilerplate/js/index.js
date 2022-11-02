@@ -51,7 +51,7 @@ let correctGuess = false;
     if (correctGuess === false) {
         helaOrdFel++
         let points = document.querySelector(`#guesses`)
-        points.innerHTML = `Guesses: ` + helaOrdFel;
+        points.innerHTML = `Wrong guesses: ` + helaOrdFel;
         wrongLetters.push(letter);
         console.log(wrongLetters)
 
@@ -109,12 +109,11 @@ navBar.style.display = `none`
 resetButton.style.display = `none`
 
 
-    function toggle(){
-        resetButton.style.display = `flex`;
-      resetButton.addEventListener("click", () => {
-        location.reload()
-      
-      })}; 
+function toggle(){
+    resetButton.style.display = `flex`;
+    resetButton.addEventListener("click", () => {
+    location.reload()
+    })}; 
 
 function compareLetters(userLetter)
 {
