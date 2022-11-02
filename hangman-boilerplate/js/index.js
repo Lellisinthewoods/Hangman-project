@@ -66,7 +66,7 @@ let correctGuess = false;
         points.innerHTML = `Wrong guesses: ` + helaOrdFel;
         wrongLetters.push(` ${letter}`);
         let usedLetters = document.querySelector(`#usedLetters`)
-        usedLetters.innerHTML = `Used letters: ` + `     ` + wrongLetters;
+        usedLetters.innerHTML = `Used letters: ` +  wrongLetters;
 
         if (helaOrdFel == 1) {
             document.querySelector('figure').classList.add('scaffold')
