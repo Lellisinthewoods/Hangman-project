@@ -37,18 +37,18 @@ let correctGuess = false;
             console.log(`rätt`)
             correctGuess = true;
             document.querySelector(`span:nth-child(${i + 1})`).innerText = letter;
-        if(wordLetters.length == right){
-            document.querySelector(`nav`).style.display = `flex`
-            let win = document.querySelector(`h2`)
-            win.innerHTML = `Du vann spelet! <br>
-            Vill du spela igen?`
-            right = 0;
-            toggle()
-        }
+            if(wordLetters.length == right){
+                document.querySelector(`nav`).style.display = `flex`
+                let win = document.querySelector(`h2`)
+                win.innerHTML = `Du vann spelet! <br>
+                Vill du spela igen?`
+                right = 0;
+                toggle()
+            }
         }
     }
 
-    if (correctGuess === false) {
+    if (correctGuess === false && helaOrdFel<5) {
         helaOrdFel++
         let points = document.querySelector(`#guesses`)
         points.innerHTML = `Wrong guesses: ` + helaOrdFel;
