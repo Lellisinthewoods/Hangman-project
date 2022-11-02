@@ -11,7 +11,7 @@
  {ord: `alarm`},{ord: `senaste`},{ord: `sfär`},
  {ord: `hägring`},{ord: `uniform`},{ord: `zoo`},
 ]
-
+let notAcceptedKeys = `1234567890+´¨'-.,<§`
 let word = ``;
 let wordLetters = ``; //ordet vi ska gissa på
 let helaOrdFel = 0;
@@ -20,14 +20,26 @@ let streck = document.querySelector(`h6`) //streck i HTML-koden!
 let allLetters = []; //där ALLA användarens bokstäver ska hamna
 let right = 0
 let gamePlayBool = true;
+let points = document.querySelector(`#guesses`)
 
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
-if (gamePlayBool === true) {    
+    
+        
 let letter = e.key;
 let comparedLetter = compareLetters(letter);
 allLetters.push(letter)
 console.log(e.key) 
 
+for (let index = 0; index < notAcceptedKeys.length; index++) {
+    if (notAcceptedKeys[index] === letter){
+        gamePlayBool = false;
+        break;
+    }
+    else {
+        gamePlayBool = true;
+    }
+}
+if (gamePlayBool === true) {
 if(comparedLetter == true)
 {
 let correctGuess = false;
@@ -51,7 +63,7 @@ let correctGuess = false;
 
     if (correctGuess === false && helaOrdFel<5) {
         helaOrdFel++
-        let points = document.querySelector(`#guesses`)
+        
         points.innerHTML = `Wrong guesses: ` + helaOrdFel;
         wrongLetters.push(letter);
         console.log(wrongLetters)
@@ -88,13 +100,11 @@ let correctGuess = false;
 }
 });
 
-
 function randomizer(){
     let randomNumber = Math.floor(Math.random()*words.length);
     word = words.splice(randomNumber, 1) //splicear ut vårat ord
     wordLetters = word[0].ord //gör om vårat ord till en string variabel
     console.log(wordLetters)
-
     streck.innerText = ``;
     for (let i = 0; i < word[0].ord.length; i++ ) { //sätter ut strecken
         streck.innerHTML += (`<span> _ </span>`) 
@@ -104,13 +114,13 @@ function randomizer(){
 document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur listan
 .addEventListener(`click`, ()=>{
     randomizer()
+    document.querySelector('figure').classList.remove('arms')
 });
 
 let resetButton = document.querySelector(`.resetButton`) // restar gamet
 let navBar = document.querySelector(`.show`)
 navBar.style.display = `none`
 resetButton.style.display = `none`
-
 
 function toggle(){
     gamePlayBool = false;
