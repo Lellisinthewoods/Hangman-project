@@ -126,3 +126,5 @@ function compareLetters(userLetter)
     }
     return bool;
 }
+
+window.onload = randomizer()
