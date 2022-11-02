@@ -49,10 +49,10 @@ let correctGuess = false;
         }
     }
 
-    if (correctGuess === false) {
+    if (correctGuess === false && helaOrdFel<5) {
         helaOrdFel++
         let points = document.querySelector(`#guesses`)
-        points.innerHTML = `Guesses: ` + helaOrdFel;
+        points.innerHTML = `Wrong guesses: ` + helaOrdFel;
         wrongLetters.push(letter);
         console.log(wrongLetters)
 
@@ -132,3 +132,5 @@ function compareLetters(userLetter)
     }
     return bool;
 }
+
+window.onload = randomizer()
