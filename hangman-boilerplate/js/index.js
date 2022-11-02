@@ -52,8 +52,7 @@ let correctGuess = false;
             if(wordLetters.length == right){
                 document.querySelector(`nav`).style.display = `flex`
                 let win = document.querySelector(`h2`)
-                win.innerHTML = `Du vann spelet! <br>
-                Vill du spela igen?`
+                win.innerHTML = `Du vann spelet!`
                 right = 0;
                 toggle()
             }
