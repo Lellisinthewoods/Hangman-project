@@ -1,15 +1,4 @@
 
-/**
- För att toggla SVG:en
- 
- document.querySelector('figure').classList.add('head')
- document.querySelector('figure').classList.add('body')
- document.querySelector('figure').classList.add('arms')
- document.querySelector('figure').classList.add('legs')
- document.querySelector('figure').classList.add('scaffold')
- */
-
-
  let words = [ //lista att hämta orden från!
  {ord: `puberteten`},{ord: `irritation`},{ord: `skallig`},
  {ord: `ljust`},{ord: `murverk`},{ord: `återförsäljare`},
@@ -49,13 +38,15 @@ let correctGuess = false;
             correctGuess = true;
             document.querySelector(`span:nth-child(${i + 1})`).innerText = letter;
         if(wordLetters.length == right){
-            console.log(`You win!`)
+            document.querySelector(`nav`).style.display = `flex`
+            let win = document.querySelector(`h2`)
+            win.innerHTML = `Du vann spelet! <br>
+            Vill du spela igen?`
             right = 0;
+            toggle()
         }
         }
     }
-
-  
 
     if (correctGuess === false) {
         helaOrdFel++
@@ -83,8 +74,6 @@ let correctGuess = false;
         if (helaOrdFel == 5) {
             document.querySelector('figure').classList.add('legs')
             console.log(`fel 5`)
-            
-            
         }
     }
 
@@ -92,16 +81,7 @@ let correctGuess = false;
         document.querySelector(`nav`).style.display = `flex`
         let lose = document.querySelector(`h2`)
         lose.innerText = `Du förlorade spelet!`
-
-
-        
-
         toggle()
-    
-        // else(  )
-        // let win = document.querySelector(`h2`)
-        // win.innerHTML = `Du vann spelet! <br>
-        // Vill du spela igen?`
     }
 };
 });
@@ -136,18 +116,14 @@ resetButton.style.display = `none`
       
       })}; 
 
-
-      function compareLetters(userLetter)
-      {
-        let bool;
-        for(let i = -1; i <allLetters.length; i++){
-            if(allLetters[i] === userLetter){
-                bool = false; // Inte säkert för den kommer ställa om sig i nästa bokstav
-                break;
-            }
-        else {
-            bool = true;
+function compareLetters(userLetter)
+{
+    let bool = true;
+    for(let i = -1; i <allLetters.length; i++){
+        if(allLetters[i] === userLetter){
+            bool = false; // Inte säkert för den kommer ställa om sig i nästa bokstav
+            break;
         }
-        return bool;
-        }
-      }
+    }
+    return bool;
+}
