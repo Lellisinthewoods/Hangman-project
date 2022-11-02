@@ -17,8 +17,6 @@ body aside{
 }
 
 
-
-
 figure svg #ground             { opacity: 1; }
 figure.scaffold svg #scaffold  { opacity: 1; }
 figure.head     svg #head      { opacity: 1; }
@@ -42,6 +40,7 @@ nav {
     transform: translateY(-100%);
     transition: all .6s ease;
     font-size: 2rem;
+
 }
 
 nav.show {
@@ -53,6 +52,7 @@ nav button {
     font-size: 1.5rem;
     border-radius: 6px;
     border:none;
+    margin-bottom: 2rem;
 }
 
 nav button:active{
