@@ -120,13 +120,30 @@ document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur 
     randomizer()
 });
 
-let resetButton= document.querySelector(`.resetButton`) // restar gamet
+let resetButton = document.querySelector(`.resetButton`) // restar gamet
+let navBar = document.querySelector(`.show`)
+navBar.style.display = `none`
+resetButton.style.display = `none`
+    function toggle(){
+        resetButton.style.display = `flex`}
+      resetButton.addEventListener("click", () => {
+        location.reload()
+      }); 
 
-function toggle(){
-    slider.classList.toggle("show");
-}
-resetButton.addEventListener("click", () => {
-    randomizer();
-    let resetButton = Math.floor(Math.random()*words.length);
-    word=words.splice (resetButton, 1)
-});
+      
+   })
+
+   function compareLetters(userLetter)
+      {
+         let bool;
+         for (let i = -1; i < allLetters.length; i++) {
+         if(allLetters[i] === userLetter){
+            bool = false; //INTE SÄKERT FÖR DEN KOMMER STÄLLA OM SIG I NÄSTA BOKSTAV
+         }
+         else{
+            bool = true;
+         }
+         
+      return bool;
+      }
+   }
