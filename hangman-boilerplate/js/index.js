@@ -19,13 +19,14 @@ let wrongLetters = []; //Där dom felaktiga bokstäverna ska hamna
 let streck = document.querySelector(`h6`) //streck i HTML-koden!
 let allLetters = []; //där ALLA användarens bokstäver ska hamna
 let right = 0
+let gamePlayBool = true;
 
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
+if (gamePlayBool === true) {    
 let letter = e.key;
 let comparedLetter = compareLetters(letter);
 allLetters.push(letter)
 console.log(e.key) 
-
 
 if(comparedLetter == true)
 {
@@ -37,14 +38,14 @@ let correctGuess = false;
             console.log(`rätt`)
             correctGuess = true;
             document.querySelector(`span:nth-child(${i + 1})`).innerText = letter;
-        if(wordLetters.length == right){
-            document.querySelector(`nav`).style.display = `flex`
-            let win = document.querySelector(`h2`)
-            win.innerHTML = `Du vann spelet! <br>
-            Vill du spela igen?`
-            right = 0;
-            toggle()
-        }
+            if(wordLetters.length == right){
+                document.querySelector(`nav`).style.display = `flex`
+                let win = document.querySelector(`h2`)
+                win.innerHTML = `Du vann spelet! <br>
+                Vill du spela igen?`
+                right = 0;
+                toggle()
+            }
         }
     }
 
@@ -84,7 +85,9 @@ let correctGuess = false;
         toggle()
     }
 };
+}
 });
+
 
 function randomizer(){
     let randomNumber = Math.floor(Math.random()*words.length);
@@ -109,12 +112,14 @@ navBar.style.display = `none`
 resetButton.style.display = `none`
 
 
-    function toggle(){
-        resetButton.style.display = `flex`;
-      resetButton.addEventListener("click", () => {
-        location.reload()
-      
-      })}; 
+function toggle(){
+    gamePlayBool = false;
+    resetButton.style.display = `flex`;
+    resetButton.addEventListener("click", () => {
+    location.reload()  
+    
+    })
+}; 
 
 function compareLetters(userLetter)
 {
