@@ -11,7 +11,7 @@
  {ord: `alarm`},{ord: `senaste`},{ord: `sfär`},
  {ord: `hägring`},{ord: `uniform`},{ord: `zoo`},
 ]
-let notAcceptedKeys = `1234567890+´¨'-.,<§`
+let AcceptedKeys = `qwertyuiopåasdfghjklöäzxcvbnm`
 let word = ``;
 let wordLetters = ``; //ordet vi ska gissa på
 let helaOrdFel = 0;
@@ -28,15 +28,14 @@ document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tange
 let letter = e.key;
 let comparedLetter = compareLetters(letter);
 allLetters.push(letter)
-console.log(e.key) 
-
-for (let index = 0; index < notAcceptedKeys.length; index++) {
-    if (notAcceptedKeys[index] === letter){
-        gamePlayBool = false;
+console.log(e.key)
+for (let index = 0; index < AcceptedKeys.length; index++) {
+    if (AcceptedKeys[index] === letter){
+        gamePlayBool = true;
         break;
     }
     else {
-        gamePlayBool = true;
+        gamePlayBool = false;
     }
 }
 if (gamePlayBool === true) {
