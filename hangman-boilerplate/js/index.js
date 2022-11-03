@@ -22,7 +22,8 @@ let right = 0
 let gamePlayBool = true;
 let wrongGuesses = document.querySelector(`#guesses`)
 let userPoints = 0;
-
+let yourPoints = document.querySelector (`#Points`)  // där Alla använders poäng ska sparas
+let keepPlaying= document.querySelector(`.keepPlaying`)
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
     
         
@@ -30,6 +31,7 @@ let letter = e.key;
 let comparedLetter = compareLetters(letter);
 allLetters.push(letter)
 console.log(e.key)
+
 for (let index = 0; index < AcceptedKeys.length; index++) {
     if (AcceptedKeys[index] === letter){
         gamePlayBool = true;
@@ -57,7 +59,7 @@ let correctGuess = false;
                 let win = document.querySelector(`h2`)
                 win.innerHTML = `Du vann spelet! Du fick ${userPoints} poäng`
                 right = 0;
-                toggle()
+                playing();
             }
         }
     }
@@ -100,6 +102,7 @@ let correctGuess = false;
     }
 };
 }
+yourPoints.innerText = `Your Points: ${userPoints}`
 });
 
 function randomizer() {
@@ -122,22 +125,33 @@ document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur 
 let resetButton = document.querySelector(`.resetButton`) // restar gamet
 let navBar = document.querySelector(`.show`)
 navBar.style.display = `none`
-    function toggle(){
-        resetButton.style.display = `flex`}
-      resetButton.addEventListener("click", () => {
-        location.reload()
-        startTimer();
-      }); 
+
+    
+       
+      
 
 function toggle() {
     gamePlayBool = false;
     resetButton.style.display = `flex`;
     document.querySelector(`.rightWord`).innerText = wordLetters
+
     resetButton.addEventListener("click", () => {
-        location.reload()
+        location.reload();
+        startTimer();
 
     })
 };
+
+        keepPlaying.style.display = `none` // fortsätter spelat
+      keepPlaying.addEventListener(`click`, () => {
+        randomizer();
+        navBar.style.display = `none`
+        allLetters.length = 0;
+      })
+      function playing(){
+        document.querySelector(`.rightWord`).innerText = wordLetters
+        keepPlaying .style.display = `flex`}
+        
 
 function compareLetters(userLetter) {
     let bool = true;
@@ -145,6 +159,7 @@ function compareLetters(userLetter) {
         if (allLetters[i] === userLetter) {
             bool = false;
             break;
+            
         }
     }
     return bool;
@@ -166,7 +181,8 @@ function compareLetters(userLetter) {
             document.querySelector(`nav`).style.display = `flex`
             let lose = document.querySelector(`h2`)
             lose.innerText = `Du förlorade spelet!`
-            toggle();
+            keepPlaying.style.display = `none`
+            toggle()
             timer = duration;
         }
     }, 1000);

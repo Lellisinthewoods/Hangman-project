@@ -139,3 +139,7 @@ nav button:active{
     transform: scale(.95);
     filter: brightness(101%);
 }
+
+.keepPlaying {
+    display: none;
+}
