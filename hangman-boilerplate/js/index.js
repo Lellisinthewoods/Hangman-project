@@ -41,8 +41,8 @@ for (let index = 0; index < AcceptedKeys.length; index++) {
         gamePlayBool = false;
     }
 }
-if (gamePlayBool === true) {
-if(comparedLetter == true)
+
+if(comparedLetter == true && gamePlayBool === true)
 {
 let correctGuess = false;
     for (let i = 0; i < wordLetters.length; i++) {
@@ -57,6 +57,7 @@ let correctGuess = false;
                 userPoints = userPoints + 10;
                 document.querySelector(`nav`).style.display = `flex`
                 let win = document.querySelector(`h2`)
+                stopTimer()
                 win.innerHTML = `Du vann spelet! Du fick ${userPoints} poäng`
                 right = 0;
                 playing();
@@ -97,6 +98,7 @@ let correctGuess = false;
     if(helaOrdFel == 5) {
         document.querySelector(`nav`).style.display = `flex`
         let lose = document.querySelector(`h2`)
+        stopTimer();
         lose.innerText = `Du förlorade spelet! Du fick ${userPoints} poäng.`
         toggle()
     }
@@ -111,6 +113,7 @@ function randomizer() {
     wordLetters = word[0].ord //gör om vårat ord till en string variabel
     console.log(wordLetters)
     streck.innerText = ``;
+    startTimer();
     for (let i = 0; i < word[0].ord.length; i++) { //sätter ut strecken
         streck.innerHTML += (`<span> _ </span>`)
     }
@@ -166,7 +169,7 @@ function compareLetters(userLetter) {
 }
 
  
-       function startTimer(duration, display) {
+function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
     setInterval(function () {
         minutes = parseInt(timer / 60, 10);
@@ -175,6 +178,7 @@ function compareLetters(userLetter) {
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
+        display = document.querySelector('#time')
         display.textContent = minutes + ":" + seconds;
 
         if (--timer < 0) {
@@ -186,6 +190,13 @@ function compareLetters(userLetter) {
             timer = duration;
         }
     }, 1000);
+}
+
+function stopTimer(){
+    display = document.querySelector('#time')
+    display.innerText = `PAUSED`
+    clearInterval(setInterval)
+    clearInterval(startTimer)
 }
 
 window.onload = randomizer()
