@@ -136,7 +136,7 @@ function compareLetters(userLetter)
     let bool = true;
     for(let i = -1; i <allLetters.length; i++){
         if(allLetters[i] === userLetter){
-            bool = false; // Inte säkert för den kommer ställa om sig i nästa bokstav
+            bool = false;
             break;
         }
     }
