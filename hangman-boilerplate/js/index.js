@@ -121,7 +121,6 @@ document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur 
 let resetButton = document.querySelector(`.resetButton`) // restar gamet
 let navBar = document.querySelector(`.show`)
 navBar.style.display = `none`
-resetButton.style.display = `none`
     function toggle(){
         resetButton.style.display = `flex`}
       resetButton.addEventListener("click", () => {
@@ -132,16 +131,17 @@ resetButton.style.display = `none`
    })
 
    function compareLetters(userLetter)
-      {
-         let bool;
-         for (let i = -1; i < allLetters.length; i++) {
-         if(allLetters[i] === userLetter){
-            bool = false; //INTE SÄKERT FÖR DEN KOMMER STÄLLA OM SIG I NÄSTA BOKSTAV
-         }
-         else{
-            bool = true;
-         }
-         
-      return bool;
+   {
+      let bool;
+      for (let i = -1; i < allLetters.length; i++) {
+      if(allLetters[i] === userLetter){
+         bool = false; //INTE SÄKERT FÖR DEN KOMMER STÄLLA OM SIG I NÄSTA BOKSTAV
       }
+      else{
+         bool = true;
+      }
+      
+   return bool;
    }
+}
+  
