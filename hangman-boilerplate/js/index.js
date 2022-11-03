@@ -20,7 +20,8 @@ let streck = document.querySelector(`h6`) //streck i HTML-koden!
 let allLetters = []; //där ALLA användarens bokstäver ska hamna
 let right = 0
 let gamePlayBool = true;
-let points = document.querySelector(`#guesses`)
+let wrongGuesses = document.querySelector(`#guesses`)
+let userPoints = 0;
 
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
     
@@ -45,14 +46,16 @@ let correctGuess = false;
     for (let i = 0; i < wordLetters.length; i++) {
         if (letter == wordLetters[i]) {
             right++
+            userPoints++;
             console.log(right)
             console.log(`rätt`)
             correctGuess = true;
             document.querySelector(`span:nth-child(${i + 1})`).innerText = letter;
             if(wordLetters.length == right){
+                userPoints = userPoints + 10;
                 document.querySelector(`nav`).style.display = `flex`
                 let win = document.querySelector(`h2`)
-                win.innerHTML = `Du vann spelet!`
+                win.innerHTML = `Du vann spelet! Du fick ${userPoints} poäng`
                 right = 0;
                 toggle()
             }
@@ -61,8 +64,8 @@ let correctGuess = false;
 
     if (correctGuess === false && helaOrdFel<5) {
         helaOrdFel++
-        
-        points.innerHTML = `Wrong guesses: ` + helaOrdFel;
+        userPoints--;
+        wrongGuesses.innerHTML = `Wrong guesses: ` + helaOrdFel;
         wrongLetters.push(` ${letter}`);
         let usedLetters = document.querySelector(`#usedLetters`)
         usedLetters.innerHTML = `Used letters: ` +  wrongLetters;
@@ -92,7 +95,7 @@ let correctGuess = false;
     if(helaOrdFel == 5) {
         document.querySelector(`nav`).style.display = `flex`
         let lose = document.querySelector(`h2`)
-        lose.innerText = `Du förlorade spelet!`
+        lose.innerText = `Du förlorade spelet! Du fick ${userPoints} poäng.`
         toggle()
     }
 };
