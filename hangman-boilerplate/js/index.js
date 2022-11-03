@@ -166,10 +166,11 @@ function compareLetters(userLetter)
     }, 1000);
 }
 
+window.onload = randomizer()
+
 window.onload = function () {
     var fiveMinutes = 60 * 1,
-        display = document.querySelector('header');
+        display = document.querySelector('#time');
     startTimer(fiveMinutes, display);
 };
 
-window.onload = randomizer()
