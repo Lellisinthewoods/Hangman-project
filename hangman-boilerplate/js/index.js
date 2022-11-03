@@ -103,9 +103,9 @@ let correctGuess = false;
         toggle()
     }
 };
-}
-yourPoints.innerText = `Your Points: ${userPoints}`
+yourPoints.innerText = `Your Points: ${userPoints}`;
 });
+
 
 function randomizer() {
     let randomNumber = Math.floor(Math.random() * words.length);
