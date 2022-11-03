@@ -118,7 +118,12 @@ document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur 
 let resetButton = document.querySelector(`.resetButton`) // restar gamet
 let navBar = document.querySelector(`.show`)
 navBar.style.display = `none`
-resetButton.style.display = `none`
+    function toggle(){
+        resetButton.style.display = `flex`}
+      resetButton.addEventListener("click", () => {
+        location.reload()
+        startTimer();
+      }); 
 
 function toggle() {
     gamePlayBool = false;
@@ -141,4 +146,33 @@ function compareLetters(userLetter) {
     return bool;
 }
 
+ 
+       function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            document.querySelector(`nav`).style.display = `flex`
+            let lose = document.querySelector(`h2`)
+            lose.innerText = `Du förlorade spelet!`
+            toggle();
+            timer = duration;
+        }
+    }, 1000);
+}
+
 window.onload = randomizer()
+
+window.onload = function () {
+    var fiveMinutes = 60 * 1,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+

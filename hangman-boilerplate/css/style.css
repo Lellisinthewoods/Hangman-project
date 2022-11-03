@@ -26,6 +26,15 @@ h1 {
     
 }
 
+header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-right: 5rem;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: orangered;
+}
 main{
     max-width: 960px;
     height: 100vh;
