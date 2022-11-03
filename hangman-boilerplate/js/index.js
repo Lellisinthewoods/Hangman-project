@@ -128,6 +128,7 @@ navBar.style.display = `none`
 function toggle(){
     gamePlayBool = false;
     resetButton.style.display = `flex`;
+    document.querySelector(`.rightWord`).innerText = wordLetters
     resetButton.addEventListener("click", () => {
     location.reload()  
     
