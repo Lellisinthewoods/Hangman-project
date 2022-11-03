@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangman boilerplate</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
   </head>
   <body>
-    <aside>
-      <nav class="show"><h2></h2>
-        <button class="resetButton">Spela igen!</button></nav>
+    <main>
+    <aside class = "left">
+
+      <nav class="show">
+        <h2></h2>
+        <button class="resetButton">Spela igen!</button>
+      </nav>
 
       <h1>Välkommen till hänga gubbe!</h1>
       <p id="Play">Tryck för att börja spelet!</p>
@@ -18,9 +25,11 @@
       <h5></h5>
       <!--ställe att samla felaktiga bokstäver-->
       <button class="randomizerButton">Slumpa ett ord!</button>
-
+      <p id="guesses">Wrong guesses:</p>
+      <p id="usedLetters">Used letters:</p>
       <!--osynlig tills spelet är slut!-->
     </aside>
+    <aside class="right">
     <figure>
       <svg
         width="501"
@@ -72,7 +81,8 @@
         />
       </svg>
     </figure>
-<footer><p id="guesses">Guesses: </p></footer>
+  </aside>
+</main>
     <script src="js/index.js"></script>
   </body>
 </html>

@@ -1,34 +1,69 @@
-body {
-    margin: 1rem;
-}
-
 figure svg > * {
     opacity: 0;
 }
-.resetButton{
-    display:none;
+
+figure svg{
+    height:auto;
+    width:18rem;
+    margin-top: -4rem;
 }
 
-body{
-    display:grid;
-    grid-template-columns: 2, 1fr;
-    grid-template-rows:auto;
+*{
+    font-family: 'IM Fell English SC', serif;
 }
 
-body aside{
-    float:left;
+body {
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color:cornsilk
+}
+h1{
+    font-size: 2rem;
 }
 
-.resetButton{
+main{
+    max-width: 960px;
+    height: auto;
     display:flex;
+    flex-direction: row;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
 }
 
-body{
-    display:grid;
-    grid-template-columns: 2, 1fr;
-    grid-template-rows:auto;
+span{
+    font-size: 2rem;
 }
 
+.right{
+    /*grid-column-start: 1;*/
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+}
+
+.left button{
+    background-color: orangered;
+    border-radius: 0.5rem;
+    padding:1.5rem;
+    font-size: 2rem;
+    border:none;
+    color:white;
+}
+
+.left button:active{
+    transform: scale(.95);
+    filter: brightness(101%);
+}
+
+figure{
+    height:10vh;
+    width: 10vw;
+}
 
 figure svg #ground             { opacity: 1; }
 figure.scaffold svg #scaffold  { opacity: 1; }
@@ -52,7 +87,8 @@ nav {
     width: 100%;
     transform: translateY(-100%);
     transition: all .6s ease;
-    font-size: 5rem;
+    font-size: 2rem;
+
 }
 
 nav.show {
@@ -64,6 +100,8 @@ nav button {
     font-size: 1.5rem;
     border-radius: 6px;
     border:none;
+    margin-bottom: 2rem;
+    display:none;
 }
 
 nav button:active{
