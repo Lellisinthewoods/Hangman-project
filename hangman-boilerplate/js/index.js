@@ -39,8 +39,8 @@ for (let index = 0; index < AcceptedKeys.length; index++) {
         gamePlayBool = false;
     }
 }
-if (gamePlayBool === true) {
-if(comparedLetter == true)
+
+if(comparedLetter == true && gamePlayBool === true)
 {
 let correctGuess = false;
     for (let i = 0; i < wordLetters.length; i++) {
@@ -99,7 +99,6 @@ let correctGuess = false;
         toggle()
     }
 };
-}
 });
 
 function randomizer() {
@@ -133,6 +132,7 @@ function toggle() {
     gamePlayBool = false;
     resetButton.style.display = `flex`;
     document.querySelector(`.rightWord`).innerText = wordLetters
+    clearInterval(startTimer)
     resetButton.addEventListener("click", () => {
         location.reload()
 
