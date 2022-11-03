@@ -58,7 +58,7 @@ let correctGuess = false;
                 document.querySelector(`nav`).style.display = `flex`
                 let win = document.querySelector(`h2`)
                 stopTimer()
-                win.innerHTML = `Du vann spelet! Du fick ${userPoints} poäng`
+                win.innerHTML = `You win! You have ${userPoints} points`
                 right = 0;
                 playing();
             }
@@ -99,7 +99,7 @@ let correctGuess = false;
         document.querySelector(`nav`).style.display = `flex`
         let lose = document.querySelector(`h2`)
         stopTimer();
-        lose.innerText = `Du förlorade spelet! Du fick ${userPoints} poäng.`
+        lose.innerText = `You lose the game! You got ${userPoints} points.`
         toggle()
     }
 };
@@ -184,7 +184,7 @@ function startTimer(duration, display) {
         if (--timer < 0) {
             document.querySelector(`nav`).style.display = `flex`
             let lose = document.querySelector(`h2`)
-            lose.innerText = `Du förlorade spelet!`
+            lose.innerText = `You lose the game!`
             keepPlaying.style.display = `none`
             toggle()
             timer = duration;
