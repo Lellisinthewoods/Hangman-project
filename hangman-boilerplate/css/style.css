@@ -18,6 +18,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    background-color: #790b00;
 }
 
 h1 {
@@ -41,7 +42,7 @@ header{
     padding: 1rem 2rem;
     color: white;
     text-shadow: none;
-    margin-top: 15rem;
+    
 }
 
 
