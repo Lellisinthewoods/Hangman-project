@@ -10,16 +10,20 @@ figure svg{
 
 *{
     font-family: 'Creepster', cursive;
+    
 }
 
 body {
+    width: 100vw;
+    height: 100vh;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    background-color:cornsilk
 }
-h1{
-    font-size: 2rem;
+
+h1 {
+    font-size: 3rem;
+    
 }
 
 header{
@@ -33,17 +37,27 @@ header{
 }
 main{
     max-width: 960px;
-    height: auto;
+    height: 100vh;
     display:flex;
     flex-direction: row;
     margin: 0 auto;
     justify-content: center;
     align-items: center;
     font-size: 1rem;
+    background-image: url("/hangman-boilerplate/css/img/web.jpeg");
+    background-repeat:no-repeat;
+    text-shadow: -1px -1px 0 #eee;
+    
+}
+
+p {
+    font-size: 1.5rem;
+    text-shadow: -1px -1px 0 #eee;
 }
 
 span{
-    font-size: 2rem;
+    font-size: 3rem;
+    
 }
 
 .right{
@@ -58,15 +72,18 @@ span{
 .left button{
     background-color: orangered;
     border-radius: 0.5rem;
-    padding:1.5rem;
+    padding: 1rem 1rem;
     font-size: 2rem;
     border:none;
     color:white;
+    width: 20rem;
+    text-shadow: none;
 }
 
 .left button:active{
     transform: scale(.95);
     filter: brightness(101%);
+    text-shadow: none;
 }
 
 figure{
@@ -98,8 +115,10 @@ nav {
     transform: translateY(-100%);
     transition: all .6s ease;
     font-size: 2rem;
-
+    text-shadow: -2px -2px 0 black;
 }
+
+
 
 nav.show {
     transform: translateX(0);
@@ -112,6 +131,8 @@ nav button {
     border:none;
     margin-bottom: 2rem;
     display:none;
+    justify-content: center;
+    text-shadow: none;
 }
 
 nav button:active{
