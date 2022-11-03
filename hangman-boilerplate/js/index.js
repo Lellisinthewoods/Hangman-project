@@ -123,6 +123,7 @@ navBar.style.display = `none`
         resetButton.style.display = `flex`}
       resetButton.addEventListener("click", () => {
         location.reload()
+        startTimer();
       }); 
 
 function toggle(){
@@ -160,7 +161,10 @@ function compareLetters(userLetter)
         display.textContent = minutes + ":" + seconds;
 
         if (--timer < 0) {
-            alert(`TIDEN ÄR UTE SUCKAAAAAAH`);
+            document.querySelector(`nav`).style.display = `flex`
+            let lose = document.querySelector(`h2`)
+            lose.innerText = `Du förlorade spelet!`
+            toggle();
             timer = duration;
         }
     }, 1000);
