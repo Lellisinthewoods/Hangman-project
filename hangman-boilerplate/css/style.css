@@ -9,7 +9,7 @@ figure svg{
 }
 
 *{
-    font-family: 'IM Fell English SC', serif;
+    font-family: 'Creepster', cursive;
 }
 
 body {
@@ -75,6 +75,7 @@ figure.legs     svg #legs      { opacity: 1; }
 nav {
     height: 100vh;
     background-image: linear-gradient(to bottom right, red, yellow);
+    opacity: 90%;
     display: flex;
     flex-direction: column;
     gap: 2rem;
