@@ -10,12 +10,11 @@ figure svg{
 
 *{
     font-family: 'Creepster', cursive;
-    
 }
 
 body {
     width: 100vw;
-    height: 100vh;
+    height: auto;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
@@ -23,22 +22,33 @@ body {
 
 h1 {
     font-size: 3rem;
-    
 }
 
 header{
+    max-width: 960px;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    margin-right: 5rem;
-    font-size: 1.5rem;
-    margin-top: 1rem;
+    Grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin: 0 auto;
     color: orangered;
 }
+
+#timebox {
+    display: flex;
+    padding: 1rem 2rem;
+    color: white;
+    text-shadow: none;
+    margin-top: 15rem;
+}
+
+
+
 main{
     max-width: 960px;
     height: 100vh;
-    display:flex;
     flex-direction: row;
     margin: 0 auto;
     justify-content: center;
@@ -47,7 +57,20 @@ main{
     background-image: url("img/web.jpeg");
     background-repeat:no-repeat;
     text-shadow: -1px -1px 0 #eee;
-    
+}
+
+
+section {
+    display:flex;
+    flex-direction: row;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+h3 { 
+    margin: 0;
 }
 
 p {
@@ -56,12 +79,7 @@ p {
 }
 
 span{
-    font-size: 3rem;
-    
-}
-
-.right{
-    /*grid-column-start: 1;*/
+    font-size: 3rem;   
 }
 
 .left{
@@ -87,9 +105,12 @@ span{
 }
 
 figure{
-    height:10vh;
-    width: 10vw;
+    height:12vh;
+    width: 12vw;
+    margin-right: 2rem;
 }
+
+
 
 figure svg #ground             { opacity: 1; }
 figure.scaffold svg #scaffold  { opacity: 1; }
