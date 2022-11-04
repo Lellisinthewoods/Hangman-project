@@ -16,11 +16,12 @@ let word = ``;
 let wordLetters = ``; //ordet vi ska gissa på
 let helaOrdFel = 0;
 let wrongLetters = []; //Där dom felaktiga bokstäverna ska hamna
-let streck = document.querySelector(`h6`) //streck i HTML-koden!
+let streck = document.querySelector(`h6`); //streck i HTML-koden!
 let allLetters = []; //där ALLA användarens bokstäver ska hamna
-let right = 0
+let right = 0;
 let gamePlayBool = true;
-let points = document.querySelector(`#guesses`)
+let points = document.querySelector(`#guesses`);
+
 
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
     
@@ -68,24 +69,29 @@ let correctGuess = false;
         usedLetters.innerHTML = `Used letters: ` +  wrongLetters;
 
         if (helaOrdFel == 1) {
-            document.querySelector('figure').classList.add('scaffold')
+            document.querySelector(`#scaffold`).classList.remove(`hide`)
             console.log(`fel 1`)
+            document.querySelector(`#rope`).classList.remove(`hide`)
         }
         if (helaOrdFel == 2) {
-            document.querySelector('figure').classList.add('head')
+            // document.querySelector('figure').classList.add('head')
             console.log(`fel 2`)
+            document.querySelector(`#head`).classList.remove(`hide`)
         }
         if (helaOrdFel == 3) {
-            document.querySelector('figure').classList.add('body')
+            // document.querySelector('figure').classList.add('body')
             console.log(`fel 3`)
+            document.querySelector(`#body`).classList.remove(`hide`)
         }
         if (helaOrdFel == 4) {
-            document.querySelector('figure').classList.add('arms')
+            // document.querySelector('figure').classList.add('arms')
             console.log(`fel 4`)
+            document.querySelector(`#arms`).classList.remove(`hide`)
         }
         if (helaOrdFel == 5) {
-            document.querySelector('figure').classList.add('legs')
+            // document.querySelector('figure').classList.add('legs')
             console.log(`fel 5`)
+            document.querySelector(`#legs`).classList.remove(`hide`)
         }
     }
 
@@ -113,7 +119,12 @@ function randomizer(){
 document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur listan
 .addEventListener(`click`, ()=>{
     randomizer()
-    document.querySelector('figure').classList.remove('arms')
+    document.querySelector(`#scaffold`).classList.add(`hide`)
+    document.querySelector(`#rope`).classList.add(`hide`)
+    document.querySelector(`#head`).classList.add('hide')
+    document.querySelector(`#body`).classList.add('hide')
+    document.querySelector(`#arms`).classList.add('hide')
+    document.querySelector(`#legs`).classList.add('hide')
 });
 
 let resetButton = document.querySelector(`.resetButton`) // restar gamet
