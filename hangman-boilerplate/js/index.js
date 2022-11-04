@@ -230,8 +230,8 @@ function startTimer() {
     let display = document.querySelector('#time');
     let timer = duration,
         minutes, seconds;
-    console.log(timer)
     setInterval(function () {
+        if (timerBool == true) {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -239,9 +239,8 @@ function startTimer() {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display = document.querySelector('#time')
-        if (timerBool == true) {
-            display.textContent = minutes + ":" + seconds;
-        }
+        display.textContent = minutes + ":" + seconds;
+        
         console.log(timer)
 
         if (--timer < 0) {
@@ -253,6 +252,7 @@ function startTimer() {
             toggle()
             timer = duration;
         }
+    }
     }, 1000);
 }
 
