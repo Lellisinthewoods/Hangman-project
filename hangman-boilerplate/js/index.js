@@ -1,83 +1,23 @@
 let words = [ //lista att hämta orden från!
-    {
-        ord: `puberteten`
-    }, {
-        ord: `irritation`
-    }, {
-        ord: `skallig`
-    },
-    {
-        ord: `ljust`
-    }, {
-        ord: `murverk`
-    }, {
-        ord: `återförsäljare`
-    },
-    {
-        ord: `auto`
-    }, {
-        ord: `kommunist`
-    }, {
-        ord: `division`
-    },
-    {
-        ord: `mognad`
-    }, {
-        ord: `flocken`
-    }, {
-        ord: `nejlika`
-    },
-    {
-        ord: `bajs`
-    }, {
-        ord: `turban`
-    }, {
-        ord: `radera`
-    },
-    {
-        ord: `mascara`
-    }, {
-        ord: `sardinen`
-    }, {
-        ord: `rimfrost`
-    },
-    {
-        ord: `brudgum`
-    }, {
-        ord: `ringa`
-    }, {
-        ord: `tid`
-    },
-    {
-        ord: `fiske`
-    }, {
-        ord: `rekord`
-    }, {
-        ord: `turism`
-    },
-    {
-        ord: `alarm`
-    }, {
-        ord: `senaste`
-    }, {
-        ord: `sfär`
-    },
-    {
-        ord: `hägring`
-    }, {
-        ord: `uniform`
-    }, {
-        ord: `zoo`
-    },
+    { ord: `puberty` }, { ord: `irritation` }, { ord: `bald` },
+    { ord: `light` }, { ord: `brickwork` }, { ord: `reseller` },
+    { ord: `auto` }, { ord: `communist` }, { ord: `division` },
+    { ord: `matur` }, { ord: `pack` }, { ord: `carnation` },
+    { ord: `pop` }, { ord: `turban` }, { ord: `delete` },
+    { ord: `mascara` }, { ord: `sardine` }, { ord: `hoarfrost` },
+    { ord: `groom` }, { ord: `call` }, { ord: `time` },
+    { ord: `fishing` }, { ord: `record` }, { ord: `tourism` },
+    { ord: `alarm` }, { ord: `latest` }, { ord: `sphere` },
+    { ord: `mirage` }, { ord: `uniform` }, { ord: `zoo` },
 ]
-let acceptedKeys = `qwertyuiopåasdfghjklöäzxcvbnm`
+let AcceptedKeys = `qwertyuiopasdfghjklzxcvbnm`
 let word = ``;
 let wordLetters = ``; //ordet vi ska gissa på
 let mistakeCounter = 0;
 let wrongLetters = []; //Där dom felaktiga bokstäverna ska hamna
 let lines = document.querySelector(`h6`) //streck i HTML-koden!
 let allLetters = []; //där ALLA användarens bokstäver ska hamna
-let right = 0
+let right = 0;
 let gamePlayBool = true;
 let wrongGuesses = document.querySelector(`#guesses`)
 let userPoints = 0;
@@ -131,27 +71,32 @@ document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tange
             let usedLetters = document.querySelector(`#usedLetters`)
             usedLetters.innerHTML = `Used letters: ` + wrongLetters;
 
-            if (mistakeCounter == 1) {
-                document.querySelector('figure').classList.add('scaffold')
-                console.log(`fel 1`)
-            }
-            if (mistakeCounter == 2) {
-                document.querySelector('figure').classList.add('head')
-                console.log(`fel 2`)
-            }
-            if (mistakeCounter == 3) {
-                document.querySelector('figure').classList.add('body')
-                console.log(`fel 3`)
-            }
-            if (mistakeCounter == 4) {
-                document.querySelector('figure').classList.add('arms')
-                console.log(`fel 4`)
-            }
-            if (mistakeCounter == 5) {
-                document.querySelector('figure').classList.add('legs')
-                console.log(`fel 5`)
-            }
+        if (mistakeCounter == 1) {
+            document.querySelector(`#scaffold`).classList.remove(`hide`)
+            console.log(`fel 1`)
+            document.querySelector(`#rope`).classList.remove(`hide`)
         }
+        if (mistakeCounter == 2) {
+            // document.querySelector('figure').classList.add('head')
+            console.log(`fel 2`)
+            document.querySelector(`#head`).classList.remove(`hide`)
+        }
+        if (mistakeCounter == 3) {
+            // document.querySelector('figure').classList.add('body')
+            console.log(`fel 3`)
+            document.querySelector(`#body`).classList.remove(`hide`)
+        }
+        if (mistakeCounter == 4) {
+            // document.querySelector('figure').classList.add('arms')
+            console.log(`fel 4`)
+            document.querySelector(`#arms`).classList.remove(`hide`)
+        }
+        if (mistakeCounter == 5) {
+            // document.querySelector('figure').classList.add('legs')
+            console.log(`fel 5`)
+            document.querySelector(`#legs`).classList.remove(`hide`)
+        }
+    }
 
         if (mistakeCounter == 5) {
             document.querySelector(`nav`).style.display = `flex`
@@ -179,10 +124,15 @@ function randomizer() {
 }
 
 document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur listan
-    .addEventListener(`click`, () => {
-        randomizer()
-        document.querySelector('figure').classList.remove('arms')
-    });
+.addEventListener(`click`, ()=>{
+    randomizer()
+    document.querySelector(`#scaffold`).classList.add(`hide`)
+    document.querySelector(`#rope`).classList.add(`hide`)
+    document.querySelector(`#head`).classList.add('hide')
+    document.querySelector(`#body`).classList.add('hide')
+    document.querySelector(`#arms`).classList.add('hide')
+    document.querySelector(`#legs`).classList.add('hide')
+});
 
 let resetButton = document.querySelector(`.resetButton`) // restar gamet
 let navBar = document.querySelector(`.show`)
@@ -201,18 +151,22 @@ function toggle() {
     })
 };
 
-keepPlaying.style.display = `none` // fortsätter spelat
-keepPlaying.addEventListener(`click`, () => {
-    randomizer();
-    navBar.style.display = `none`
-    allLetters.length = 0;
-})
+        keepPlaying.style.display = `none` // fortsätter spelat
+      keepPlaying.addEventListener(`click`, () => {
+        randomizer();
+        navBar.style.display = `none`
+        allLetters.length = 0;
+        wrongLetters.length=0;
+        usedLetters.innerHTML = `Used letters: ` +  wrongLetters;
 
-function playing() {
-    document.querySelector(`.rightWord`).innerText = wordLetters
-    keepPlaying.style.display = `flex`
-}
 
+        
+      })
+      function playing(){
+        document.querySelector(`.rightWord`).innerText = wordLetters
+        keepPlaying .style.display = `flex`
+    }
+        
 
 function compareLetters(userLetter) {
     let bool = true;

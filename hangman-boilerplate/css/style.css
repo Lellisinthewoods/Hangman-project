@@ -1,4 +1,4 @@
-figure svg > * {
+/* figure svg > * {
     opacity: 0;
 }
 
@@ -6,7 +6,7 @@ figure svg{
     height:auto;
     width:18rem;
     margin-top: -4rem;
-}
+} */
 
 *{
     font-family: 'Creepster', cursive;
@@ -71,6 +71,12 @@ section {
     font-size: 1rem;
 }
 
+.right{
+    width: 50vw;
+    z-index: 0;
+
+}
+
 h3 { 
     margin: 0;
 }
@@ -87,6 +93,8 @@ span{
 .left{
     display: flex;
     flex-direction: column;
+    z-index: 0;
+    width: 50vw;
 }
 
 .left button{
@@ -106,20 +114,17 @@ span{
     text-shadow: none;
 }
 
-figure{
-    height:12vh;
-    width: 12vw;
-    margin-right: 2rem;
-}
+/* figure{
+    height:10vh;
+    width: 10vw;
+} */
 
-
-
-figure svg #ground             { opacity: 1; }
+/* figure svg #ground             { opacity: 1; }
 figure.scaffold svg #scaffold  { opacity: 1; }
 figure.head     svg #head      { opacity: 1; }
 figure.body     svg #body      { opacity: 1; }
 figure.arms     svg #arms      { opacity: 1; }
-figure.legs     svg #legs      { opacity: 1; }
+figure.legs     svg #legs      { opacity: 1; } */
 
 nav {
     height: 100vh;
@@ -163,6 +168,101 @@ nav button:active{
     filter: brightness(101%);
 }
 
+.hide {
+    display: none;
+}
+
+/* #rope {
+    position: relative;
+    height: 45px;
+    width: 2px;
+    background-color: black;
+    right: -230px;
+    top: 0px;
+} */
+
+#scaffold {
+    position: fixed;
+    height: 400px;
+    right: 125px;
+    top: 70px;
+    z-index: 1;
+}
+
+#head {
+    position: fixed;
+    height: 100px;
+    right: 80px;
+    top: 90px;
+    z-index: 2;
+}
+
+#body {
+    position: fixed;
+    height: 205px;
+    right: 17px;
+    top: 75px;
+    z-index: 3;
+}
+
+#arms {
+    position: fixed;
+    height: 140px;
+    right: 20px;
+    top: 80px;
+    z-index: 4;
+}
+
+#legs {
+    position: fixed;
+    height: 205px;
+    right: 17px;
+    top: 161px;
+    z-index: 5;
+}
+
 .keepPlaying {
     display: none;
 }
+
+/* @media screen and (max-width: 700px) {
+    #scaffold {
+        position: fixed;
+        height: 400px;
+        right: 125px;
+        top: 70px;
+        z-index: 1;
+    }
+    
+    #head {
+        position: fixed;
+        height: 100px;
+        right: 80px;
+        top: 90px;
+        z-index: 2;
+    }
+    
+    #body {
+        position: fixed;
+        height: 205px;
+        right: 200px;
+        top: 75px;
+        z-index: 3;
+    }
+    
+    #arms {
+        position: fixed;
+        height: 140px;
+        right: 20px;
+        top: 80px;
+        z-index: 4;
+    }
+    
+    #legs {
+        position: fixed;
+        height: 205px;
+        right: 17px;
+        top: 161px;
+        z-index: 5;
+    }
+} */
