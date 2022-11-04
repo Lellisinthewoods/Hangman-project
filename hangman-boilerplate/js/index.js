@@ -3,7 +3,7 @@ let words = [ //lista att hämta orden från!
     { ord: `light` }, { ord: `brickwork` }, { ord: `reseller` },
     { ord: `auto` }, { ord: `communist` }, { ord: `division` },
     { ord: `mature` }, { ord: `pack` }, { ord: `carnation` },
-    { ord: `pop` }, { ord: `turban` }, { ord: `delete` },
+    { ord: `lollipop` }, { ord: `turban` }, { ord: `delete` },
     { ord: `mascara` }, { ord: `sardine` }, { ord: `hoarfrost` },
     { ord: `groom` }, { ord: `call` }, { ord: `time` },
     { ord: `fishing` }, { ord: `record` }, { ord: `tourism` },
@@ -24,6 +24,7 @@ let userPoints = 0;
 let yourPoints = document.querySelector(`#Points`) // där Alla använders poäng ska sparas
 let keepPlaying = document.querySelector(`.keepPlaying`)
 let timerBool = true;
+let timerActive = false;
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
 
 
@@ -184,8 +185,14 @@ function startTimer() {
     let display = document.querySelector('#time');
     let timer = duration,
         minutes, seconds;
+
+        if (timerActive == false)
+        {
     setInterval(function () {
-        if (timerBool == true) {
+        if (timerBool == true) 
+        {
+        timerActive = true;
+
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -208,6 +215,7 @@ function startTimer() {
         }
     }
     }, 1000);
+}
 }
 
 function stopTimer() {
