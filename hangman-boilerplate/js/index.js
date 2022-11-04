@@ -131,27 +131,27 @@ document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tange
             let usedLetters = document.querySelector(`#usedLetters`)
             usedLetters.innerHTML = `Used letters: ` + wrongLetters;
 
-        if (helaOrdFel == 1) {
+        if (mistakeCounter == 1) {
             document.querySelector(`#scaffold`).classList.remove(`hide`)
             console.log(`fel 1`)
             document.querySelector(`#rope`).classList.remove(`hide`)
         }
-        if (helaOrdFel == 2) {
+        if (mistakeCounter == 2) {
             // document.querySelector('figure').classList.add('head')
             console.log(`fel 2`)
             document.querySelector(`#head`).classList.remove(`hide`)
         }
-        if (helaOrdFel == 3) {
+        if (mistakeCounter == 3) {
             // document.querySelector('figure').classList.add('body')
             console.log(`fel 3`)
             document.querySelector(`#body`).classList.remove(`hide`)
         }
-        if (helaOrdFel == 4) {
+        if (mistakeCounter == 4) {
             // document.querySelector('figure').classList.add('arms')
             console.log(`fel 4`)
             document.querySelector(`#arms`).classList.remove(`hide`)
         }
-        if (helaOrdFel == 5) {
+        if (mistakeCounter == 5) {
             // document.querySelector('figure').classList.add('legs')
             console.log(`fel 5`)
             document.querySelector(`#legs`).classList.remove(`hide`)

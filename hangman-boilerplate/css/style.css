@@ -224,3 +224,45 @@ nav button:active{
 .keepPlaying {
     display: none;
 }
+
+/* @media screen and (max-width: 700px) {
+    #scaffold {
+        position: fixed;
+        height: 400px;
+        right: 125px;
+        top: 70px;
+        z-index: 1;
+    }
+    
+    #head {
+        position: fixed;
+        height: 100px;
+        right: 80px;
+        top: 90px;
+        z-index: 2;
+    }
+    
+    #body {
+        position: fixed;
+        height: 205px;
+        right: 200px;
+        top: 75px;
+        z-index: 3;
+    }
+    
+    #arms {
+        position: fixed;
+        height: 140px;
+        right: 20px;
+        top: 80px;
+        z-index: 4;
+    }
+    
+    #legs {
+        position: fixed;
+        height: 205px;
+        right: 17px;
+        top: 161px;
+        z-index: 5;
+    }
+} */
