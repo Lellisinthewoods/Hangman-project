@@ -2,7 +2,7 @@ let words = [ //lista att hämta orden från!
     { ord: `puberty` }, { ord: `irritation` }, { ord: `bald` },
     { ord: `light` }, { ord: `brickwork` }, { ord: `reseller` },
     { ord: `auto` }, { ord: `communist` }, { ord: `division` },
-    { ord: `matur` }, { ord: `pack` }, { ord: `carnation` },
+    { ord: `mature` }, { ord: `pack` }, { ord: `carnation` },
     { ord: `pop` }, { ord: `turban` }, { ord: `delete` },
     { ord: `mascara` }, { ord: `sardine` }, { ord: `hoarfrost` },
     { ord: `groom` }, { ord: `call` }, { ord: `time` },
@@ -10,7 +10,7 @@ let words = [ //lista att hämta orden från!
     { ord: `alarm` }, { ord: `latest` }, { ord: `sphere` },
     { ord: `mirage` }, { ord: `uniform` }, { ord: `zoo` },
 ]
-let AcceptedKeys = `qwertyuiopasdfghjklzxcvbnm`
+let acceptedKeys = `qwertyuiopasdfghjklzxcvbnm`
 let word = ``;
 let wordLetters = ``; //ordet vi ska gissa på
 let mistakeCounter = 0;
