@@ -168,9 +168,9 @@ nav button:active{
     filter: brightness(101%);
 }
 
-.hide {
+/* .hide {
     display: none;
-}
+} */
 
 /* #rope {
     position: relative;
@@ -184,40 +184,40 @@ nav button:active{
 #scaffold {
     position: fixed;
     height: 400px;
-    right: 125px;
-    top: 70px;
+    left: 420px;
+    top: 130px;
     z-index: 1;
 }
 
 #head {
     position: fixed;
     height: 100px;
-    right: 80px;
-    top: 90px;
+    left: 550px;
+    top: 150px;
     z-index: 2;
 }
 
 #body {
     position: fixed;
     height: 205px;
-    right: 17px;
-    top: 75px;
+    left: 489px;
+    top: 135px;
     z-index: 3;
 }
 
 #arms {
     position: fixed;
     height: 140px;
-    right: 20px;
-    top: 80px;
+    left: 494px;
+    top: 140px;
     z-index: 4;
 }
 
 #legs {
     position: fixed;
     height: 205px;
-    right: 17px;
-    top: 161px;
+    left: 489px;
+    top: 221px;
     z-index: 5;
 }
 
@@ -225,44 +225,128 @@ nav button:active{
     display: none;
 }
 
-/* @media screen and (max-width: 700px) {
+@media screen and (min-width: 900px) {
     #scaffold {
         position: fixed;
         height: 400px;
-        right: 125px;
-        top: 70px;
+        left: 620px;
+        top: 130px;
         z-index: 1;
     }
     
     #head {
         position: fixed;
         height: 100px;
-        right: 80px;
-        top: 90px;
+        left: 750px;
+        top: 150px;
         z-index: 2;
     }
     
     #body {
         position: fixed;
         height: 205px;
-        right: 200px;
-        top: 75px;
+        left: 689px;
+        top: 135px;
         z-index: 3;
     }
     
     #arms {
         position: fixed;
         height: 140px;
-        right: 20px;
-        top: 80px;
+        left: 694px;
+        top: 140px;
         z-index: 4;
     }
     
     #legs {
         position: fixed;
         height: 205px;
-        right: 17px;
-        top: 161px;
+        left: 689px;
+        top: 221px;
         z-index: 5;
     }
-} */
+}
+
+@media screen and (min-width: 1300px) {
+    #scaffold {
+        position: fixed;
+        height: 400px;
+        left: 820px;
+        top: 130px;
+        z-index: 1;
+    }
+    
+    #head {
+        position: fixed;
+        height: 100px;
+        left: 950px;
+        top: 150px;
+        z-index: 2;
+    }
+    
+    #body {
+        position: fixed;
+        height: 205px;
+        left: 889px;
+        top: 135px;
+        z-index: 3;
+    }
+    
+    #arms {
+        position: fixed;
+        height: 140px;
+        left: 894px;
+        top: 140px;
+        z-index: 4;
+    }
+    
+    #legs {
+        position: fixed;
+        height: 205px;
+        left: 889px;
+        top: 221px;
+        z-index: 5;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    #scaffold {
+        position: fixed;
+        height: 400px;
+        left: 920px;
+        top: 130px;
+        z-index: 1;
+    }
+    
+    #head {
+        position: fixed;
+        height: 100px;
+        left: 1050px;
+        top: 150px;
+        z-index: 2;
+    }
+    
+    #body {
+        position: fixed;
+        height: 205px;
+        left: 989px;
+        top: 135px;
+        z-index: 3;
+    }
+    
+    #arms {
+        position: fixed;
+        height: 140px;
+        left: 994px;
+        top: 140px;
+        z-index: 4;
+    }
+    
+    #legs {
+        position: fixed;
+        height: 205px;
+        left: 989px;
+        top: 221px;
+        z-index: 5;
+    }
+}
