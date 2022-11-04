@@ -1,4 +1,3 @@
-
 let words = [ //lista att hämta orden från!
     { ord: `puberty` }, { ord: `irritation` }, { ord: `bald` },
     { ord: `light` }, { ord: `brickwork` }, { ord: `reseller` },
@@ -14,96 +13,100 @@ let words = [ //lista att hämta orden från!
 let AcceptedKeys = `qwertyuiopasdfghjklzxcvbnm`
 let word = ``;
 let wordLetters = ``; //ordet vi ska gissa på
-let helaOrdFel = 0;
+let mistakeCounter = 0;
 let wrongLetters = []; //Där dom felaktiga bokstäverna ska hamna
-let streck = document.querySelector(`h6`) //streck i HTML-koden!
+let lines = document.querySelector(`h6`) //streck i HTML-koden!
 let allLetters = []; //där ALLA användarens bokstäver ska hamna
-let right = 0
+let right = 0;
 let gamePlayBool = true;
 let wrongGuesses = document.querySelector(`#guesses`)
 let userPoints = 0;
-let yourPoints = document.querySelector (`#Points`)  // där Alla använders poäng ska sparas
-let keepPlaying= document.querySelector(`.keepPlaying`)
+let yourPoints = document.querySelector(`#Points`) // där Alla använders poäng ska sparas
+let keepPlaying = document.querySelector(`.keepPlaying`)
+let timerBool = true;
 document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
-    
-        
-let letter = e.key;
-let comparedLetter = compareLetters(letter);
-allLetters.push(letter)
-console.log(e.key)
 
-for (let index = 0; index < AcceptedKeys.length; index++) {
-    if (AcceptedKeys[index] === letter){
-        gamePlayBool = true;
-        break;
-    }
-    else {
-        gamePlayBool = false;
-    }
-}
 
-if(comparedLetter == true && gamePlayBool === true)
-{
-let correctGuess = false;
-    for (let i = 0; i < wordLetters.length; i++) {
-        if (letter == wordLetters[i]) {
-            right++
-            userPoints++;
-            console.log(right)
-            console.log(`rätt`)
-            correctGuess = true;
-            document.querySelector(`span:nth-child(${i + 1})`).innerText = letter;
-            if(wordLetters.length == right){
-                userPoints = userPoints + 10;
-                document.querySelector(`nav`).style.display = `flex`
-                let win = document.querySelector(`h2`)
-                stopTimer()
-                win.innerHTML = `You win! You have ${userPoints} points`
-                right = 0;
-                playing();
-            }
+    let letter = e.key;
+    let comparedLetter = compareLetters(letter);
+    allLetters.push(letter)
+    console.log(e.key)
+
+    for (let index = 0; index < acceptedKeys.length; index++) {
+        if (acceptedKeys[index] === letter) {
+            gamePlayBool = true;
+            break;
+        } else {
+            gamePlayBool = false;
         }
     }
 
-    if (correctGuess === false && helaOrdFel<5) {
-        helaOrdFel++
-        userPoints--;
-        wrongGuesses.innerHTML = `Wrong guesses: ` + helaOrdFel;
-        wrongLetters.push(` ${letter}`);
-        let usedLetters = document.querySelector(`#usedLetters`)
-        usedLetters.innerHTML = `Used letters: ` +  wrongLetters;
-
-                if (helaOrdFel == 1) {
-                    document.querySelector('figure').classList.add('scaffold')
-                    console.log(`fel 1`)
-                }
-                if (helaOrdFel == 2) {
-                    document.querySelector('figure').classList.add('head')
-                    console.log(`fel 2`)
-                }
-                if (helaOrdFel == 3) {
-                    document.querySelector('figure').classList.add('body')
-                    console.log(`fel 3`)
-                }
-                if (helaOrdFel == 4) {
-                    document.querySelector('figure').classList.add('arms')
-                    console.log(`fel 4`)
-                }
-                if (helaOrdFel == 5) {
-                    document.querySelector('figure').classList.add('legs')
-                    console.log(`fel 5`)
+    if (comparedLetter == true && gamePlayBool === true) {
+        let correctGuess = false;
+        for (let i = 0; i < wordLetters.length; i++) {
+            if (letter == wordLetters[i]) {
+                right++
+                userPoints++;
+                console.log(right)
+                console.log(`rätt`)
+                correctGuess = true;
+                document.querySelector(`span:nth-child(${i + 1})`).innerText = letter;
+                if (wordLetters.length == right) {
+                    userPoints = userPoints + 10;
+                    document.querySelector(`nav`).style.display = `flex`
+                    let win = document.querySelector(`h2`)
+                    stopTimer()
+                    win.innerHTML = `You win! You have ${userPoints} points`
+                    right = 0;
+                    playing();
                 }
             }
+        }
 
-    if(helaOrdFel == 5) {
-        document.querySelector(`nav`).style.display = `flex`
-        let lose = document.querySelector(`h2`)
-        stopTimer();
-        lose.innerText = `You lose the game! You got ${userPoints} points.`
-        toggle()
+        if (correctGuess === false && mistakeCounter < 5) {
+            mistakeCounter++;
+            userPoints--;
+            wrongGuesses.innerHTML = `Wrong guesses: ` + mistakeCounter;
+            wrongLetters.push(` ${letter}`);
+            let usedLetters = document.querySelector(`#usedLetters`)
+            usedLetters.innerHTML = `Used letters: ` + wrongLetters;
+
+        if (mistakeCounter == 1) {
+            document.querySelector(`#scaffold`).classList.remove(`hide`)
+            console.log(`fel 1`)
+            document.querySelector(`#rope`).classList.remove(`hide`)
+        }
+        if (mistakeCounter == 2) {
+            // document.querySelector('figure').classList.add('head')
+            console.log(`fel 2`)
+            document.querySelector(`#head`).classList.remove(`hide`)
+        }
+        if (mistakeCounter == 3) {
+            // document.querySelector('figure').classList.add('body')
+            console.log(`fel 3`)
+            document.querySelector(`#body`).classList.remove(`hide`)
+        }
+        if (mistakeCounter == 4) {
+            // document.querySelector('figure').classList.add('arms')
+            console.log(`fel 4`)
+            document.querySelector(`#arms`).classList.remove(`hide`)
+        }
+        if (mistakeCounter == 5) {
+            // document.querySelector('figure').classList.add('legs')
+            console.log(`fel 5`)
+            document.querySelector(`#legs`).classList.remove(`hide`)
+        }
     }
-};
-yourPoints.innerText = `Your Points: ${userPoints}`;
+
+        if (mistakeCounter == 5) {
+            document.querySelector(`nav`).style.display = `flex`
+            let lose = document.querySelector(`h2`)
+            stopTimer();
+            lose.innerText = `You lose the game! You got ${userPoints} points.`
+            toggle()
+        }
+    };
+    yourPoints.innerText = `Your Points: ${userPoints}`;
 });
 
 
@@ -112,26 +115,29 @@ function randomizer() {
     word = words.splice(randomNumber, 1) //splicear ut vårat ord
     wordLetters = word[0].ord //gör om vårat ord till en string variabel
     console.log(wordLetters)
-    streck.innerText = ``;
+    lines.innerText = ``;
+    timerBool = true;
     startTimer();
     for (let i = 0; i < word[0].ord.length; i++) { //sätter ut strecken
-        streck.innerHTML += (`<span> _ </span>`)
+        lines.innerHTML += (`<span> _ </span>`)
     }
 }
 
 document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur listan
-    .addEventListener(`click`, () => {
-        randomizer()
-        document.querySelector('figure').classList.remove('arms')
-    });
+.addEventListener(`click`, ()=>{
+    randomizer()
+    document.querySelector(`#scaffold`).classList.add(`hide`)
+    document.querySelector(`#rope`).classList.add(`hide`)
+    document.querySelector(`#head`).classList.add('hide')
+    document.querySelector(`#body`).classList.add('hide')
+    document.querySelector(`#arms`).classList.add('hide')
+    document.querySelector(`#legs`).classList.add('hide')
+});
 
 let resetButton = document.querySelector(`.resetButton`) // restar gamet
 let navBar = document.querySelector(`.show`)
 navBar.style.display = `none`
 
-    
-       
-      
 
 function toggle() {
     gamePlayBool = false;
@@ -168,15 +174,17 @@ function compareLetters(userLetter) {
         if (allLetters[i] === userLetter) {
             bool = false;
             break;
-            
         }
     }
     return bool;
 }
 
- 
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
+function startTimer() {
+    let duration = 60 * 1;
+    let display = document.querySelector('#time');
+    let timer = duration,
+        minutes, seconds;
+    console.log(timer)
     setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
@@ -185,12 +193,16 @@ function startTimer(duration, display) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display = document.querySelector('#time')
-        display.textContent = minutes + ":" + seconds;
+        if (timerBool == true) {
+            display.textContent = minutes + ":" + seconds;
+        }
+        console.log(timer)
 
         if (--timer < 0) {
             document.querySelector(`nav`).style.display = `flex`
             let lose = document.querySelector(`h2`)
             lose.innerText = `You lose the game!`
+            timerBool = false;
             keepPlaying.style.display = `none`
             toggle()
             timer = duration;
@@ -198,9 +210,10 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-function stopTimer(){
+function stopTimer() {
     display = document.querySelector('#time')
     display.innerText = `PAUSED`
+    timerBool = false;
     clearInterval(setInterval)
     clearInterval(startTimer)
 }
@@ -208,8 +221,5 @@ function stopTimer(){
 window.onload = randomizer()
 
 window.onload = function () {
-    var fiveMinutes = 60 * 1,
-        display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
+    startTimer();
 };
-
