@@ -25,19 +25,20 @@ let yourPoints = document.querySelector(`#Points`) // där Alla använders poän
 let keepPlaying = document.querySelector(`.keepPlaying`)
 let timerBool = true;
 let timerActive = false;
-document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
 
+
+document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tangentbordsknappar
 
     let letter = e.key;
     let comparedLetter = compareLetters(letter);
     allLetters.push(letter)
-    console.log(e.key)
 
     for (let index = 0; index < acceptedKeys.length; index++) {
         if (acceptedKeys[index] === letter) {
             gamePlayBool = true;
             break;
-        } else {
+        } 
+        else {
             gamePlayBool = false;
         }
     }
@@ -48,8 +49,6 @@ document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tange
             if (letter == wordLetters[i]) {
                 right++
                 userPoints++;
-                console.log(right)
-                console.log(`rätt`)
                 correctGuess = true;
                 document.querySelector(`span:nth-child(${i + 1})`).innerText = letter;
                 if (wordLetters.length == right) {
@@ -72,38 +71,27 @@ document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tange
             let usedLetters = document.querySelector(`#usedLetters`)
             usedLetters.innerHTML = `Used letters: ` + wrongLetters;
 
-        if (mistakeCounter == 1) {
-            document.querySelector(`#scaffold`).classList.remove(`hide`)
-            console.log(`fel 1`)
-        }
-        if (mistakeCounter == 2) {
-            // document.querySelector('figure').classList.add('head')
-            console.log(`fel 2`)
-            document.querySelector(`#head`).classList.remove(`hide`)
-        }
-        if (mistakeCounter == 3) {
-            // document.querySelector('figure').classList.add('body')
-            console.log(`fel 3`)
-            document.querySelector(`#body`).classList.remove(`hide`)
-        }
-        if (mistakeCounter == 4) {
-            // document.querySelector('figure').classList.add('arms')
-            console.log(`fel 4`)
-            document.querySelector(`#arms`).classList.remove(`hide`)
-        }
-        if (mistakeCounter == 5) {
-            // document.querySelector('figure').classList.add('legs')
-            console.log(`fel 5`)
-            document.querySelector(`#legs`).classList.remove(`hide`)
-        }
-    }
-
-        if (mistakeCounter == 5) {
-            document.querySelector(`nav`).style.display = `flex`
-            let lose = document.querySelector(`h2`)
-            stopTimer();
-            lose.innerText = `You lose the game! You got ${userPoints} points.`
-            toggle()
+            if (mistakeCounter == 1) {
+                document.querySelector(`#scaffold`).classList.remove(`hide`)
+            }
+            if (mistakeCounter == 2) {
+                document.querySelector(`#head`).classList.remove(`hide`)
+            }
+            if (mistakeCounter == 3) {
+                document.querySelector(`#body`).classList.remove(`hide`)
+            }
+            if (mistakeCounter == 4) {
+                document.querySelector(`#arms`).classList.remove(`hide`)
+            }
+            if (mistakeCounter == 5) {
+                keepPlaying.style.display = `none`
+                document.querySelector(`#legs`).classList.remove(`hide`)
+                document.querySelector(`nav`).style.display = `flex`
+                let lose = document.querySelector(`h2`)
+                stopTimer();
+                lose.innerText = `You lose the game! You got ${userPoints} points.`
+                toggle()
+            }
         }
     };
     yourPoints.innerText = `Your Points: ${userPoints}`;
@@ -114,8 +102,8 @@ function randomizer() {
     let randomNumber = Math.floor(Math.random() * words.length);
     word = words.splice(randomNumber, 1) //splicear ut vårat ord
     wordLetters = word[0].ord //gör om vårat ord till en string variabel
-    console.log(wordLetters)
     lines.innerText = ``;
+    console.log(wordLetters)
     timerBool = true;
     startTimer();
     for (let i = 0; i < word[0].ord.length; i++) { //sätter ut strecken
@@ -134,7 +122,7 @@ document.querySelector(`.randomizerButton`) //knapp för att slumpa fram ord ur 
     document.querySelector(`#legs`).classList.add('hide')
 });
 
-let resetButton = document.querySelector(`.resetButton`) // restar gamet
+let resetButton = document.querySelector(`.resetButton`) // restart gamet
 let navBar = document.querySelector(`.show`)
 navBar.style.display = `none`
 
@@ -151,22 +139,19 @@ function toggle() {
     })
 };
 
-        keepPlaying.style.display = `none` // fortsätter spelat
-      keepPlaying.addEventListener(`click`, () => {
-        randomizer();
-        navBar.style.display = `none`
-        allLetters.length = 0;
-        wrongLetters.length=0;
-        usedLetters.innerHTML = `Used letters: ` +  wrongLetters;
+keepPlaying.style.display = `none` // fortsätter spelat
+keepPlaying.addEventListener(`click`, () => {
+    randomizer();
+    navBar.style.display = `none`
+    allLetters.length = 0;
+    wrongLetters.length = 0;
+    usedLetters.innerHTML = `Used letters: ` +  wrongLetters;
+});
 
-
-        
-      })
-      function playing(){
-        document.querySelector(`.rightWord`).innerText = wordLetters
-        keepPlaying .style.display = `flex`
-    }
-        
+function playing(){
+    document.querySelector(`.rightWord`).innerText = wordLetters
+    keepPlaying.style.display = `flex`
+};
 
 function compareLetters(userLetter) {
     let bool = true;
@@ -185,36 +170,34 @@ function startTimer() {
     let timer = duration,
         minutes, seconds;
 
-        if (timerActive == false)
-        {
-    setInterval(function () {
-        if (timerBool == true) 
-        {
-        timerActive = true;
+    if (timerActive == false)
+    {
+        setInterval(function () {
+            if (timerBool == true) 
+            {
+                timerActive = true;
 
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        display = document.querySelector('#time')
-        display.textContent = minutes + ":" + seconds;
-        
-        console.log(timer)
+                display = document.querySelector('#time')
+                display.textContent = minutes + ":" + seconds;
 
-        if (--timer < 0) {
-            document.querySelector(`nav`).style.display = `flex`
-            let lose = document.querySelector(`h2`)
-            lose.innerText = `You lose the game!`
-            timerBool = false;
-            keepPlaying.style.display = `none`
-            toggle()
-            timer = duration;
-        }
+                if (--timer < 0) {
+                    document.querySelector(`nav`).style.display = `flex`
+                    let lose = document.querySelector(`h2`)
+                    lose.innerText = `Time out! You got ${userPoints} points.`
+                    timerBool = false;
+                    keepPlaying.style.display = `none`
+                    toggle()
+                    timer = duration;
+                }
+            }
+        }, 1000);
     }
-    }, 1000);
-}
 }
 
 function stopTimer() {
