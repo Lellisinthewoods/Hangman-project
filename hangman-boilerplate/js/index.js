@@ -1,17 +1,17 @@
 
 let words = [ //lista att hämta orden från!
-    { ord: `puberteten` }, { ord: `irritation` }, { ord: `skallig` },
-    { ord: `ljust` }, { ord: `murverk` }, { ord: `återförsäljare` },
-    { ord: `auto` }, { ord: `kommunist` }, { ord: `division` },
-    { ord: `mognad` }, { ord: `flocken` }, { ord: `nejlika` },
-    { ord: `bajs` }, { ord: `turban` }, { ord: `radera` },
-    { ord: `mascara` }, { ord: `sardinen` }, { ord: `rimfrost` },
-    { ord: `brudgum` }, { ord: `ringa` }, { ord: `tid` },
-    { ord: `fiske` }, { ord: `rekord` }, { ord: `turism` },
-    { ord: `alarm` }, { ord: `senaste` }, { ord: `sfär` },
-    { ord: `hägring` }, { ord: `uniform` }, { ord: `zoo` },
+    { ord: `puberty` }, { ord: `irritation` }, { ord: `bald` },
+    { ord: `light` }, { ord: `brickwork` }, { ord: `reseller` },
+    { ord: `auto` }, { ord: `communist` }, { ord: `division` },
+    { ord: `matur` }, { ord: `pack` }, { ord: `carnation` },
+    { ord: `pop` }, { ord: `turban` }, { ord: `delete` },
+    { ord: `mascara` }, { ord: `sardine` }, { ord: `hoarfrost` },
+    { ord: `groom` }, { ord: `call` }, { ord: `time` },
+    { ord: `fishing` }, { ord: `record` }, { ord: `tourism` },
+    { ord: `alarm` }, { ord: `latest` }, { ord: `sphere` },
+    { ord: `mirage` }, { ord: `uniform` }, { ord: `zoo` },
 ]
-let AcceptedKeys = `qwertyuiopåasdfghjklöäzxcvbnm`
+let AcceptedKeys = `qwertyuiopasdfghjklzxcvbnm`
 let word = ``;
 let wordLetters = ``; //ordet vi ska gissa på
 let helaOrdFel = 0;
@@ -150,10 +150,16 @@ function toggle() {
         randomizer();
         navBar.style.display = `none`
         allLetters.length = 0;
+        wrongLetters.length=0;
+        usedLetters.innerHTML = `Used letters: ` +  wrongLetters;
+
+
+        
       })
       function playing(){
         document.querySelector(`.rightWord`).innerText = wordLetters
-        keepPlaying .style.display = `flex`}
+        keepPlaying .style.display = `flex`
+    }
         
 
 function compareLetters(userLetter) {
