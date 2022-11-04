@@ -5,57 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangman boilerplate</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Creepster&family=IM+Fell+English+SC&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-  
     <main>
-     
-  
       <section>
-      <aside class="left">
-        <nav class="show">
-          <h2></h2>
-          <h3>The word was:</h3>
-          <h3 class="rightWord"></h3>
-          <button class="resetButton">Play Again!</button>
-          <button class="keepPlaying"> Keep Playing</button>
-        </nav>
+        <aside class="left">
+          <nav class="show">
+            <h2></h2>
+            <h3>The word was:</h3>
+            <h3 class="rightWord"></h3>
+            <button class="resetButton">Play Again!</button>
+            <button class="keepPlaying">Keep Playing</button>
+          </nav>
 
-        <h1>Welcome to Hangman!</h1>
+          <h1>Welcome to Hangman!</h1>
 
-        <h6></h6>
-        <!--ställe för _ _ _  eller ordet att dyka upp-->
-        <h5></h5>
-        <!--ställe att samla felaktiga bokstäver-->
-        <button class="randomizerButton">Don't hang me!</button>
-        <p id="guesses">Wrong guesses:</p>
-        <p id="usedLetters">Used letters:</p>
-        <p id="Points"> Your Points:</p>
-        <!--osynlig tills spelet är slut!-->
-      </aside>
-      <aside class="right">
-        <figure>
-          <img
-            src="img/headtrans.png"
-            alt="pumpahuvud"
-            id="head"
-            class="hide"
-          />
-          <!-- <div id="rope" class="hide"></div> -->
-          <img
-            src="img/scaffold500.jpg"
-            alt="scaffold"
-            id="scaffold"
-            class="hide"
-          />
-          <img src="img/bodytrans.png" alt="kropp" id="body" class="hide" />
-          <img src="img/handstrans.png" alt="armar" id="arms" class="hide" />
-          <img src="img/legstrans.png" alt="ben" id="legs" class="hide" />
-          <!-- <svg
+          <h6></h6>
+          <!--ställe för _ _ _  eller ordet att dyka upp-->
+          <h5></h5>
+          <!--ställe att samla felaktiga bokstäver-->
+          <button class="randomizerButton">Don't hang me!</button>
+          <p id="guesses">Wrong guesses:</p>
+          <p id="usedLetters">Used letters:</p>
+          <p id="Points">Your Points:</p>
+          <!--osynlig tills spelet är slut!-->
+        </aside>
+        <aside class="right">
+          <figure>
+            <img
+              src="img/headtrans.png"
+              alt="pumpahuvud"
+              id="head"
+              class="hide"
+            />
+            <img
+              src="img/scaffold500.jpg"
+              alt="scaffold"
+              id="scaffold"
+              class="hide"
+            />
+            <img src="img/bodytrans.png" alt="kropp" id="body" class="hide" />
+            <img src="img/handstrans.png" alt="armar" id="arms" class="hide" />
+            <img src="img/legstrans.png" alt="ben" id="legs" class="hide" />
+            <!-- <svg
             width="501"
             height="565"
             viewBox="0 0 501 565"
@@ -104,12 +102,17 @@
               fill="black"
             />
           </svg> -->
-        </figure>
-      </aside>
-    </section>
-    <header><div id="timebox">TIMER: <div id="time">01:00</div></div></header>
+          </figure>
+        </aside>
+      </section>
+      <header>
+        <div id="timebox">
+          TIMER:
+          <div id="time">01:00</div>
+        </div>
+      </header>
     </main>
-   
+
     <script src="js/index.js"></script>
   </body>
 </html>

@@ -74,7 +74,6 @@ document.addEventListener(`keypress`, (e) => { //lyssnar efter event från tange
         if (mistakeCounter == 1) {
             document.querySelector(`#scaffold`).classList.remove(`hide`)
             console.log(`fel 1`)
-            document.querySelector(`#rope`).classList.remove(`hide`)
         }
         if (mistakeCounter == 2) {
             // document.querySelector('figure').classList.add('head')

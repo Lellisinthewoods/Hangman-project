@@ -172,15 +172,6 @@ nav button:active{
     display: none;
 }
 
-/* #rope {
-    position: relative;
-    height: 45px;
-    width: 2px;
-    background-color: black;
-    right: -230px;
-    top: 0px;
-} */
-
 #scaffold {
     position: fixed;
     height: 400px;
