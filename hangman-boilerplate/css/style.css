@@ -168,9 +168,9 @@ nav button:active{
     filter: brightness(101%);
 }
 
-/* .hide {
+.hide {
     display: none;
-} */
+}
 
 /* #rope {
     position: relative;
