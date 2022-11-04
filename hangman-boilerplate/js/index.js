@@ -103,7 +103,6 @@ function randomizer() {
     word = words.splice(randomNumber, 1) //splicear ut vårat ord
     wordLetters = word[0].ord //gör om vårat ord till en string variabel
     lines.innerText = ``;
-    console.log(wordLetters)
     timerBool = true;
     startTimer();
     for (let i = 0; i < word[0].ord.length; i++) { //sätter ut strecken
