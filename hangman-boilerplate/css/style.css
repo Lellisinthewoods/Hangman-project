@@ -9,24 +9,61 @@ figure svg{
 } */
 
 *{
-    font-family: 'IM Fell English SC', serif;
+    font-family: 'Creepster', cursive;
 }
 
 body {
+    width: 100vw;
+    height: auto;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    background-color:cornsilk
+    background-color: #790b00;
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
-main {
+header{
     max-width: 960px;
-    height: auto;
     display: flex;
+    Grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin: 0 auto;
+    color: orangered;
+}
+
+#timebox {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 2rem;
+    color: white;
+    text-shadow: none;
+    width: 20rem;
+}
+
+
+
+main{
+    max-width: 960px;
+    height: 100vh;
+    flex-direction: row;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    background-image: url("img/web.jpeg");
+    background-repeat:no-repeat;
+    text-shadow: -1px -1px 0 #eee;
+}
+
+
+section {
+    display:flex;
     flex-direction: row;
     margin: 0 auto;
     justify-content: center;
@@ -34,13 +71,23 @@ main {
     font-size: 1rem;
 }
 
-span {
-    font-size: 2rem;
-}
-
 .right{
     width: 50vw;
     z-index: 0;
+
+}
+
+h3 { 
+    margin: 0;
+}
+
+p {
+    font-size: 1.5rem;
+    text-shadow: -1px -1px 0 #eee;
+}
+
+span{
+    font-size: 3rem;   
 }
 
 .left{
@@ -53,15 +100,18 @@ span {
 .left button{
     background-color: orangered;
     border-radius: 0.5rem;
-    padding:1.5rem;
+    padding: 1rem 1rem;
     font-size: 2rem;
     border:none;
     color:white;
+    width: 20rem;
+    text-shadow: none;
 }
 
 .left button:active{
     transform: scale(.95);
     filter: brightness(101%);
+    text-shadow: none;
 }
 
 /* figure{
@@ -79,6 +129,7 @@ figure.legs     svg #legs      { opacity: 1; } */
 nav {
     height: 100vh;
     background-image: linear-gradient(to bottom right, red, yellow);
+    opacity: 90%;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -92,8 +143,10 @@ nav {
     transform: translateY(-100%);
     transition: all .6s ease;
     font-size: 2rem;
-
+    text-shadow: -2px -2px 0 black;
 }
+
+
 
 nav.show {
     transform: translateX(0);
@@ -106,6 +159,8 @@ nav button {
     border:none;
     margin-bottom: 2rem;
     display:none;
+    justify-content: center;
+    text-shadow: none;
 }
 
 nav button:active{
@@ -164,4 +219,8 @@ nav button:active{
     right: 17px;
     top: 161px;
     z-index: 5;
+}
+
+.keepPlaying {
+    display: none;
 }
