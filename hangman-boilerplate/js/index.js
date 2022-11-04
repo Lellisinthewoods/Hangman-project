@@ -1,76 +1,16 @@
 let words = [ //lista att hämta orden från!
-    {
-        ord: `puberteten`
-    }, {
-        ord: `irritation`
-    }, {
-        ord: `skallig`
-    },
-    {
-        ord: `ljust`
-    }, {
-        ord: `murverk`
-    }, {
-        ord: `återförsäljare`
-    },
-    {
-        ord: `auto`
-    }, {
-        ord: `kommunist`
-    }, {
-        ord: `division`
-    },
-    {
-        ord: `mognad`
-    }, {
-        ord: `flocken`
-    }, {
-        ord: `nejlika`
-    },
-    {
-        ord: `bajs`
-    }, {
-        ord: `turban`
-    }, {
-        ord: `radera`
-    },
-    {
-        ord: `mascara`
-    }, {
-        ord: `sardinen`
-    }, {
-        ord: `rimfrost`
-    },
-    {
-        ord: `brudgum`
-    }, {
-        ord: `ringa`
-    }, {
-        ord: `tid`
-    },
-    {
-        ord: `fiske`
-    }, {
-        ord: `rekord`
-    }, {
-        ord: `turism`
-    },
-    {
-        ord: `alarm`
-    }, {
-        ord: `senaste`
-    }, {
-        ord: `sfär`
-    },
-    {
-        ord: `hägring`
-    }, {
-        ord: `uniform`
-    }, {
-        ord: `zoo`
-    },
+    { ord: `puberty` }, { ord: `irritation` }, { ord: `bald` },
+    { ord: `light` }, { ord: `brickwork` }, { ord: `reseller` },
+    { ord: `auto` }, { ord: `communist` }, { ord: `division` },
+    { ord: `mature` }, { ord: `pack` }, { ord: `carnation` },
+    { ord: `pop` }, { ord: `turban` }, { ord: `delete` },
+    { ord: `mascara` }, { ord: `sardine` }, { ord: `hoarfrost` },
+    { ord: `groom` }, { ord: `call` }, { ord: `time` },
+    { ord: `fishing` }, { ord: `record` }, { ord: `tourism` },
+    { ord: `alarm` }, { ord: `latest` }, { ord: `sphere` },
+    { ord: `mirage` }, { ord: `uniform` }, { ord: `zoo` },
 ]
-let acceptedKeys = `qwertyuiopåasdfghjklöäzxcvbnm`
+let acceptedKeys = `qwertyuiopasdfghjklzxcvbnm`
 let word = ``;
 let wordLetters = ``; //ordet vi ska gissa på
 let mistakeCounter = 0;
@@ -211,18 +151,22 @@ function toggle() {
     })
 };
 
-keepPlaying.style.display = `none` // fortsätter spelat
-keepPlaying.addEventListener(`click`, () => {
-    randomizer();
-    navBar.style.display = `none`
-    allLetters.length = 0;
-})
+        keepPlaying.style.display = `none` // fortsätter spelat
+      keepPlaying.addEventListener(`click`, () => {
+        randomizer();
+        navBar.style.display = `none`
+        allLetters.length = 0;
+        wrongLetters.length=0;
+        usedLetters.innerHTML = `Used letters: ` +  wrongLetters;
 
-function playing() {
-    document.querySelector(`.rightWord`).innerText = wordLetters
-    keepPlaying.style.display = `flex`
-}
 
+        
+      })
+      function playing(){
+        document.querySelector(`.rightWord`).innerText = wordLetters
+        keepPlaying .style.display = `flex`
+    }
+        
 
 function compareLetters(userLetter) {
     let bool = true;
@@ -240,8 +184,8 @@ function startTimer() {
     let display = document.querySelector('#time');
     let timer = duration,
         minutes, seconds;
-    console.log(timer)
     setInterval(function () {
+        if (timerBool == true) {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -249,9 +193,8 @@ function startTimer() {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display = document.querySelector('#time')
-        if (timerBool == true) {
-            display.textContent = minutes + ":" + seconds;
-        }
+        display.textContent = minutes + ":" + seconds;
+        
         console.log(timer)
 
         if (--timer < 0) {
@@ -263,6 +206,7 @@ function startTimer() {
             toggle()
             timer = duration;
         }
+    }
     }, 1000);
 }
 
